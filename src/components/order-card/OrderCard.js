@@ -1,72 +1,43 @@
-import React from 'react';
-import { formatCurrency } from "@/lib/formatters/formatCurrency";
+import { formatCurrency } from "@/lib/formatters/formatCurrency.js";
+import Image from "next/image";
+import { valueAccumulator } from "@/lib/calculations/valueAccumulator.js";
+import { formatClientName } from "@/lib/formatters/formatClientName.js"
 
-const OrderCard = ({ order }) => {
-    const extractClientName = (idCumplimiento) => {
-        const match = idCumplimiento.match(/- (.+?) - /);
-        return match ? match[1] : 'Cliente';
-    };
-
-    // Función para extraer la fecha de forma segura
-    const getFormattedDate = (dateField) => {
-        if (!dateField) return 'Sin fecha';
-
-        // Si es un objeto, intenta extraer el valor
-        if (typeof dateField === 'object') {
-            // Si tiene una propiedad 'error', muéstralo
-            if (dateField.error) return 'Error en fecha';
-            // Si tiene otras propiedades, convierte a string
-            return JSON.stringify(dateField);
-        }
-
-        // Si es string, retorna directamente
-        return dateField;
-    };
-
-    const clientName = extractClientName(order['Id Cumplimiento']);
-    const totalValue = order['Precio Total Lechugas'] + (order['Precio Total Aromáticas']?.[0] || 0);
-    const formattedDate = getFormattedDate(order['Fecha real de entrega raw']);
+export default function CreditCard({ data }) {
+    const balance = valueAccumulator(data, 'Precio Total Lechugas');
 
     return (
-        <div className="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-5 text-white shadow-2xl m-4 min-h-[200px] flex flex-col justify-between max-w-md w-full">
-            <div className="flex justify-between items-center mb-5">
-                <span className="text-xs opacity-80 uppercase tracking-wider">Cliente</span>
-                <span className="bg-white/20 px-3 py-1 rounded-xl text-xs font-medium">
-          {order['Status Pago']}
-        </span>
-            </div>
-
-            <h2 className="text-2xl font-bold mb-6 drop-shadow-md">
-                {clientName}
-            </h2>
-
-            <div className="flex gap-5 mb-5">
-                <div className="flex flex-col gap-1">
-                    <span className="text-[11px] opacity-70 uppercase tracking-wide">Pedido</span>
-                    <span className="text-sm font-semibold">
-            {order['Id Cumplimiento'].split(' ')[0]}
-          </span>
-                </div>
-                <div className="flex flex-col gap-1">
-                    <span className="text-[11px] opacity-70 uppercase tracking-wide">Fecha</span>
-                    <span className="text-sm font-semibold">
-            {formattedDate}
-          </span>
+        <div className="relative w-full max-w-sm aspect-[1.586/1] bg-gradient-to-br from-green-900 to-green-500 rounded-2xl shadow-xl p-6 flex flex-col justify-between">
+            {/* Logo en esquina superior derecha */}
+            <div className="flex justify-between items-start">
+                <h2 className="text-white text-lg sm:text-xl font-semibold max-w-[60%]">
+                    {formatClientName(data[0]['Id Cumplimiento'])}
+                </h2>
+                <div className="relative w-12 h-12 sm:w-16 sm:h-16">
+                    <Image
+                        src="/branding/afood_logo.png"
+                        alt="Logo"
+                        fill
+                        className="object-contain"
+                    />
                 </div>
             </div>
 
-            <div className="flex justify-between items-center pt-4 border-t border-white/20">
-                <span className="text-xs opacity-80 uppercase">Total</span>
-                <span className="text-3xl font-bold drop-shadow-md">
-          {formatCurrency(totalValue)}
-        </span>
+            {/* Saldo y fecha en la parte inferior */}
+            <div className="space-y-2">
+                <div className="text-white">
+                    <p className="text-xs sm:text-sm opacity-80 mb-1">Saldo Total</p>
+                    <p className="text-2xl sm:text-3xl font-bold tracking-wider">
+                        {formatCurrency(balance)}
+                    </p>
+                </div>
+                <div className="text-white">
+                    <p className="text-xs sm:text-sm opacity-80">Cliente desde</p>
+                    <p className="text-sm sm:text-base font-medium">
+                        {data[0]['Fecha real de entrega raw']}
+                    </p>
+                </div>
             </div>
         </div>
     );
-};
-
-export default OrderCard;
-
-// TODO: Esto es solo una versión muy alpha para visualizar los datos. Ya se comprueba que los datos se llaman correctamente de
-//  acuerdo al query string que se pasa en url del front. Ahora toca empezar a pintar los datos y construir el requerimiento,
-//  luego las respectivas validaciones en caso de que el cliente se ponga a jugar con la url.
+}

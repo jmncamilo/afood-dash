@@ -3,7 +3,6 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import OrderCard from "@/components/order-card/OrderCard";
 
-
 export default function Home() {
     const searchParams = useSearchParams();
     const customerQuery = searchParams.get("customer"); // Obtenemos el valor de la query string
@@ -17,7 +16,7 @@ export default function Home() {
                 return alert('No se pudo consumir la API');
             }
             const data = await response.json();
-            alert('Se trajeron los datos correctamente');
+            alert('¡Datos cargados!');
             setData(data);
             console.log(data);
         };
@@ -31,9 +30,7 @@ export default function Home() {
               Dashboard Afood
           </h1>
           <div className="flex flex-wrap justify-center gap-4">
-              {data && data.map((order, index) => (
-                  <OrderCard key={index} order={order} />
-              ))}
+              {data.length > 0 && <OrderCard data={data}/>}
           </div>
       </div>
   );
