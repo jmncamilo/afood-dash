@@ -1,4 +1,4 @@
-# 🚧 Dashboard en progreso
+# 🚧 Dashboard en progreso...
 
 ¡Hola!
 En **afood** seguimos cultivando mejoras.
