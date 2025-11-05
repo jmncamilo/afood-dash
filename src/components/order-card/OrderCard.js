@@ -26,7 +26,7 @@ export default function CreditCard({ data }) {
             {/* Saldo y fecha en la parte inferior */}
             <div className="space-y-2">
                 <div className="text-white">
-                    <p className="text-xs sm:text-sm opacity-80 mb-1">Saldo Total</p>
+                    <p className="text-xs sm:text-sm opacity-80 mb-1">Total Pagado</p>
                     <p className="text-2xl sm:text-3xl font-bold tracking-wider">
                         {formatCurrency(balance)}
                     </p>
