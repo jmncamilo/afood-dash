@@ -1,4 +1,4 @@
-// This function extracts and returns the client name from a string formatted by airtable as "XX - Name - XX"
+// Esta función extrae y devuelve el nombre del cliente de una cadena formateada por Airtable como "XX - Nombre - XX"
 export function formatClientName(str) {
     if (!str) return '';
     const parts = str.split(' - ');
