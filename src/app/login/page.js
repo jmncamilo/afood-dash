@@ -24,11 +24,11 @@ export default function Login() {
                         <div className={styles.bannerImageContainer}>
                             <Image
                                 className={styles.bannerImage}
-                                src="/banners/login-people.svg"
+                                src="/banners/login-people-hd.svg"
                                 alt="Banner login"
                                 width={383}
                                 height={480} priority
-                                quality={95}
+                                quality={97}
                             />
                         </div>
                         <div className={styles.circleDesign}></div>
