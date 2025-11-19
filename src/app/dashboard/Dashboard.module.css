@@ -1,0 +1,62 @@
+.dashboardWrapper {
+    gap: 2rem;
+}
+
+.dashboardWrapper::before {
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: clamp(250px, 50vh, 60vh);
+    background-color: #E9E5E5;
+    z-index: -1;
+    border-radius: 0 0 3rem 3rem;
+}
+
+.customerHeader {
+    background-color: rgba(232, 118, 199, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.customerLogo {
+    object-fit: contain;
+    object-position: center;
+    padding: 0.4rem;
+}
+
+.sectionCreditCard {
+    background-color: rgba(0, 128, 36, 0.2);
+}
+
+    /* Este selector permite sacar una sección de los límites establecidos por sus contenedores padre */
+.sectionFullWidth {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+.sectionSummaryOrders {
+    background-color: rgba(0, 0, 128, 0.2);
+}
+
+.sectionCardEnvironment {
+    background-color: rgba(228, 232, 118, 0.2);
+}
+
+.sectionAchievements {
+    background-color: rgba(213, 163, 193, 0.2);
+}
+
+.sectionPolicies {
+    background-color: rgba(35, 152, 246, 0.2);
+}

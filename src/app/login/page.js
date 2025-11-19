@@ -14,7 +14,7 @@ export default function Login() {
                             alt="Logo de afood"
                             width={125}
                             height={36} priority
-                            quality={95}
+                            quality={98}
                         />
                     </div>
                 </header>
@@ -28,7 +28,7 @@ export default function Login() {
                                 alt="Banner login"
                                 width={383}
                                 height={480} priority
-                                quality={97}
+                                quality={98}
                             />
                         </div>
                         <div className={styles.circleDesign}></div>
