@@ -51,9 +51,10 @@ export default function Dashboard() {
                             </div>
                         </div>
                         <div className={styles.cardSecondColumn}>
-                            {/* TODO: toca envolver esto en un wrapper y acomodar todo con base a ese wrapper para mantener diseño consistente */}
-                            <span className={styles.cardAfoodLogo}></span>
-                            <span className={styles.cardWireless}></span>
+                            <div className={styles.cardWrapperIcons}>
+                                <span className={styles.cardAfoodLogo}></span>
+                                <span className={styles.cardWireless}></span>
+                            </div>
                         </div>
                     </div>
                 </section>
