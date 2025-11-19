@@ -29,7 +29,91 @@
 }
 
 .sectionCreditCard {
-    background-color: rgba(0, 128, 36, 0.2);
+    background-color: rgb(231, 171, 171);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+}
+
+.cardBase {
+    background-image: url("/card/base-card.svg");
+    width: 100%;
+    max-width: 490px;
+    aspect-ratio: 3 / 2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardFirstColumn {
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 72%;
+    height: 90%;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.1rem;
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.cardWrapperTotal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.chipCard {
+    width: 4rem;
+    aspect-ratio: 2/1;
+    background-image: url("/card/chip-card.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    align-self: flex-start;
+}
+
+.cardSecondColumn {
+    background-color: rgba(219, 154, 208, 0.65);
+    height: 90%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3.5rem;
+    overflow: hidden;
+    padding-top: 0.8rem;
+}
+
+.cardAfoodLogo,
+.cardWireless {
+    width: 3.5rem;
+    aspect-ratio: 2/1;
+    background-image: url("/branding/logo-afood-font-white.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #C2DB9A;
+}
+
+.cardWireless {
+    width: 1.5rem;
+    aspect-ratio: 1/1;
+    margin-right: 1.5rem;
+    background-image: url("/card/wireless-symbol.svg");
+    transform: rotate(90deg);
+    align-self: flex-end;
 }
 
     /* Este selector permite sacar una sección de los límites establecidos por sus contenedores padre */
@@ -42,7 +126,6 @@
     margin-right: -50vw;
     padding-left: 0;
     padding-right: 0;
-
 }
 
 .sectionSummaryOrders {

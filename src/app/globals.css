@@ -13,12 +13,14 @@ html {
 :root {
     --background: #FDFDFD;
     --foreground: #161616;
+    --font-poppins: ;
 }
 
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
+    font-family: var(--font-poppins), Arial, sans-serif;
 }
 
 h1 {
