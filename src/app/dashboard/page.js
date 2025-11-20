@@ -8,7 +8,7 @@ export default function Dashboard() {
             {/* Contenedor donde vive el fondo gris */}
             <main className={`${styles.dashboardWrapper} max-w-7xl mx-auto flex flex-col overflow-hidden`}>
 
-                {/* Encabezado del usuario */}
+                {/* Encabezado del cliente */}
                 <header className={styles.customerHeader}>
                     <div className="flex items-center p-2.5 w-full bg-white rounded-2xl shadow-md shadow-gray-700/60 font-sans">
                         <div className="relative w-12 h-12 rounded-full bg-gray-200 mr-4 flex items-center justify-center overflow-hidden">
@@ -36,7 +36,7 @@ export default function Dashboard() {
                     </div>
                 </header>
 
-                {/* Sección de tarjeta / saldo / cuenta */}
+                {/* Sección afood card (total pagado - deuda) */}
                 <section className={styles.sectionCreditCard}>
                     <div className={styles.cardBase}>
                         <div className={styles.cardFirstColumn}>
@@ -59,22 +59,30 @@ export default function Dashboard() {
                     </div>
                 </section>
 
-                {/* Resumen semanal / pedidos / balances */}
-                <section className={`${styles.sectionSummaryOrders} ${styles.sectionFullWidth}`}>
-                    Aquí va el resumen de los pedidos por producto
+                {/* Sección con botón para ver detalles de la deuda */}
+                <section className={styles.sectionButtonDetails}>
+                    <button className={styles.buttonDetails} title={'Ver detalles de la deuda'}>
+                        Deuda
+                    </button>
                 </section>
 
-                {/* Impacto o estadísticas adicionales */}
+                {/* Sección resumen de pedidos */}
+                <section className={`${styles.sectionSummaryOrders} ${styles.sectionFullWidth}`}>
+                    Aquí va el resumen de los pedidos por producto
+                {/* TODO: empezar con esto */}
+                </section>
+
+                {/* Sección impacto ambiental */}
                 <section className={styles.sectionCardEnvironment}>
                     Aquí va la card que redirige a la vista de métricas impacto ambiental
                 </section>
 
-                {/* Logros y badges */}
+                {/* Sección badges */}
                 <section className={styles.sectionAchievements}>
                     Aquí van los badges del cliente
                 </section>
 
-                {/* Políticas de pago y de entrega */}
+                {/* Sección política de pago y de entrega */}
                 <section className={styles.sectionPolicies}>
                     Aquí van las políticas de compra y entrega
                 </section>

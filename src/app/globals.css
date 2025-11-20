@@ -37,7 +37,7 @@ button {
     border-radius: 0.5rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.16s ease-in-out;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
 }
@@ -55,4 +55,9 @@ button:active {
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #1fe881, 0 4px 8px rgba(0, 0, 0, 0.15);
 }

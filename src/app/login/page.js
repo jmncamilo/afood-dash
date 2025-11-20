@@ -46,7 +46,7 @@ export default function Login() {
                                 />
                             </div>
                             <label className="flex items-center gap-2 cursor-pointer self-start">
-                                <input type="checkbox" className="w-4 h-4 cursor-pointer accent-[#46BF55]" />
+                                <input type="checkbox" className="w-4 h-4 cursor-pointer accent-[#46BF55] focus:outline-none" />
                                 <span className="text-base text-gray-700">Recuérdame</span>
                             </label>
                             <button>INGRESAR</button>
