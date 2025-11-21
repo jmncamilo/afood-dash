@@ -77,17 +77,30 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección resumen de pedidos */}
+                    {/* TODO: revisar una última vez que nada se rompa y aplicar modularización de las cards... */}
                 <section className={styles.sectionSummaryOrders}>
                     <SummaryHeader dropdownState={dropdownState} setDropdownState={setDropdownState} />
                     <div className={styles.summaryCardsScrollable}>
                         <div className={styles.summaryCardBase}>
-
+                            <div className={styles.summaryCardTextWrapper}>
+                                <span className={styles.summaryCardTextWrapperTitle}>Pedidos</span>
+                                <span className={styles.summaryCardTextWrapperTitle}>realizados</span>
+                                <span className={styles.summaryCardTextWrapperValue}>99</span>
+                            </div>
+                        </div>
+                        <div className={`${styles.summaryCardBase} ${styles.summaryCardSecondFigure}`}>
+                            <div className={styles.summaryCardTextWrapper}>
+                                <span className={styles.summaryCardTextWrapperTitle}>Canastas</span>
+                                <span className={styles.summaryCardTextWrapperTitle}>compradas</span>
+                                <span className={styles.summaryCardTextWrapperValue}>99</span>
+                            </div>
                         </div>
                         <div className={styles.summaryCardBase}>
-
-                        </div>
-                        <div className={styles.summaryCardBase}>
-
+                            <div className={styles.summaryCardTextWrapper}>
+                                <span className={styles.summaryCardTextWrapperTitle}>Unidades</span>
+                                <span className={styles.summaryCardTextWrapperTitle}>entregadas</span>
+                                <span className={styles.summaryCardTextWrapperValue}>99</span>
+                            </div>
                         </div>
                     </div>
                 </section>

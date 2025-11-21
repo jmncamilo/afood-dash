@@ -1,3 +1,4 @@
+/* =-=-= Configuración adicional del contenedor padre =-=-= */
 .dashboardWrapper {
     gap: 1.5rem;
 }
@@ -14,6 +15,7 @@
     border-radius: 0 0 3rem 3rem;
 }
 
+/* =-=-= Configuración para el header de cliente =-=-= */
 .customerHeader {
     background-color: rgba(232, 118, 199, 0.2);
     display: flex;
@@ -28,6 +30,7 @@
     padding: 0.4rem;
 }
 
+/* =-=-= Sección de la tarjeta de "crédito" afood =-=-= */
 .sectionCreditCard {
     /*background-color: rgb(231, 171, 171);*/
     display: flex;
@@ -131,6 +134,7 @@
     transform: rotate(90deg);
 }
 
+/* =-=-= Sección del botón que muestra el desglose de la deuda =-=-= */
 .sectionButtonDetails {
     background-color: rgba(0, 0, 128, 0.2);
     display: flex;
@@ -147,6 +151,7 @@
     text-align: center;
 }
 
+/* =-=-= Sección de resumen con las cards que brindan información de los pedidos del cliente =-=-= */
 .sectionSummaryOrders {
     /*background-color: rgba(0, 0, 128, 0.2);*/
     display: flex;
@@ -185,16 +190,58 @@
     background-position: center;
     aspect-ratio: 3/2;
     filter: drop-shadow(0 2px 2px rgba(0,0,0,0.43));
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
+.summaryCardSecondFigure {
+    background-image: url("/misc/summary-card-02.svg");
+}
+
+.summaryCardTextWrapper {
+    /*background-color: rgba(194, 219, 154, 0.39);*/
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 1rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 1;
+    gap: 2px;
+    color: #00373e;
+}
+
+.summaryCardTextWrapperTitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.summaryCardTextWrapperValue {
+    font-size: 2.3rem;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* =-=-= Sección de la tarjeta que tiene un call to action para redirigir a la vista de impacto ambiental =-=-= */
 .sectionCardEnvironment {
     background-color: rgba(228, 232, 118, 0.2);
 }
 
+/* =-=-= Sección con los badges del cliente =-=-= */
 .sectionAchievements {
     background-color: rgba(213, 163, 193, 0.2);
 }
 
+/* =-=-= Sección de políticas afood =-=-= */
 .sectionPolicies {
     background-color: rgba(35, 152, 246, 0.2);
 }
