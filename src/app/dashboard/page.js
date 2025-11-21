@@ -1,11 +1,16 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import styles from "./Dashboard.module.css";
 import Image from "next/image";
+import { SummaryHeader } from "@/app/dashboard/SummaryHeader";
 
 export default function Dashboard() {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    // Estado para manejar el filtro del producto a consultar
+    const [dropdownState, setDropdownState] = useState({
+        isOpen: false,
+        selectedProduct: 'Productos',
+    });
 
     return (
         // Contenedor padre
@@ -73,67 +78,7 @@ export default function Dashboard() {
 
                 {/* Sección resumen de pedidos */}
                 <section className={styles.sectionSummaryOrders}>
-                    {/* TODO: Aquí empieza */}
-                    {/* Header con título y desplegable */}
-                    <div className="flex items-center justify-between mb-1.5 w-full">
-                        {/* Título - alineado a la izquierda */}
-                        <h2 className="text-xl md:text-2xl font-bold text-cyan-950">
-                            Resumen
-                        </h2>
-
-                        {/* Desplegable de productos - alineado a la derecha */}
-                        <div className="relative">
-                            <div
-                                className="flex items-center gap-2 px-4 py-2 bg-transparent rounded-lg text-[color:#505050] font-medium transition-colors cursor-pointer select-none"
-                                role="button"
-                                tabIndex={0}
-                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                onKeyDown={(e) => e.key === 'Enter' && setIsDropdownOpen(!isDropdownOpen)}
-                            >
-                                <span className="text-sm md:text-base">Producto</span>
-                                <svg
-                                    className={`w-4 h-4 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </div>
-
-                            {/* Opciones del desplegable */}
-                            {isDropdownOpen && (
-                                <div className="absolute top-[calc(100%+0.2rem)] right-0 w-full min-w-max bg-gray-300 rounded-lg shadow-lg overflow-hidden z-50">
-                                    <div
-                                        className="w-full px-4 py-2 text-left text-sm md:text-base text-black hover:bg-gray-200 transition-colors cursor-pointer"
-                                        role="button"
-                                        tabIndex={0}
-                                        onClick={() => setIsDropdownOpen(false)}
-                                    >
-                                        Lechuga
-                                    </div>
-                                    <div
-                                        className="w-full px-4 py-2 text-left text-sm md:text-base text-black hover:bg-gray-200 transition-colors cursor-pointer"
-                                        role="button"
-                                        tabIndex={0}
-                                        onClick={() => setIsDropdownOpen(false)}
-                                    >
-                                        Aromática
-                                    </div>
-                                    <div
-                                        className="w-full px-4 py-2 text-left text-sm md:text-base text-black hover:bg-gray-200 transition-colors cursor-pointer"
-                                        role="button"
-                                        tabIndex={0}
-                                        onClick={() => setIsDropdownOpen(false)}
-                                    >
-                                        Cilantrón
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    {/* TODO: Aquí termina */}
-
+                    <SummaryHeader dropdownState={dropdownState} setDropdownState={setDropdownState} />
                     <div className={styles.summaryCardsScrollable}>
                         <div className={styles.summaryCardBase}>
 
