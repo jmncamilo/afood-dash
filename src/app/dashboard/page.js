@@ -4,12 +4,20 @@ import { useState } from "react";
 import styles from "./Dashboard.module.css";
 import Image from "next/image";
 import { SummaryHeader } from "@/app/dashboard/SummaryHeader";
+import { SummaryCard } from "@/app/dashboard/SummaryCard";
 
 export default function Dashboard() {
     // Estado para manejar el filtro del producto a consultar
     const [dropdownState, setDropdownState] = useState({
         isOpen: false,
         selectedProduct: 'Productos',
+    });
+
+    // Estado para manejar los valores dinámicos en la sección de resumen
+    const [summaryValues, setSummaryValues] = useState({
+        orders: '99',
+        baskets: '99',
+        units: '4444'
     });
 
     return (
@@ -77,31 +85,12 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección resumen de pedidos */}
-                    {/* TODO: revisar una última vez que nada se rompa y aplicar modularización de las cards... */}
                 <section className={styles.sectionSummaryOrders}>
                     <SummaryHeader dropdownState={dropdownState} setDropdownState={setDropdownState} />
                     <div className={styles.summaryCardsScrollable}>
-                        <div className={styles.summaryCardBase}>
-                            <div className={styles.summaryCardTextWrapper}>
-                                <span className={styles.summaryCardTextWrapperTitle}>Pedidos</span>
-                                <span className={styles.summaryCardTextWrapperTitle}>realizados</span>
-                                <span className={styles.summaryCardTextWrapperValue}>99</span>
-                            </div>
-                        </div>
-                        <div className={`${styles.summaryCardBase} ${styles.summaryCardSecondFigure}`}>
-                            <div className={styles.summaryCardTextWrapper}>
-                                <span className={styles.summaryCardTextWrapperTitle}>Canastas</span>
-                                <span className={styles.summaryCardTextWrapperTitle}>compradas</span>
-                                <span className={styles.summaryCardTextWrapperValue}>99</span>
-                            </div>
-                        </div>
-                        <div className={styles.summaryCardBase}>
-                            <div className={styles.summaryCardTextWrapper}>
-                                <span className={styles.summaryCardTextWrapperTitle}>Unidades</span>
-                                <span className={styles.summaryCardTextWrapperTitle}>entregadas</span>
-                                <span className={styles.summaryCardTextWrapperValue}>99</span>
-                            </div>
-                        </div>
+                        <SummaryCard firstLineText={'Pedidos'} secondLineText={'realizados'} value={summaryValues.orders}/>
+                        <SummaryCard firstLineText={'Canastas'} secondLineText={'compradas'} value={summaryValues.baskets} secondFigure={true}/>
+                        <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={summaryValues.units}/>
                     </div>
                 </section>
 
