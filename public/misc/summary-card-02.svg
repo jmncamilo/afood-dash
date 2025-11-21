@@ -1,0 +1,25 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139 94" width="1000" height="676">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m12.47 3.22l113.74-0.22c5.8-0.01 10.52 4.68 10.54 10.48l0.19 66.14c0.02 5.8-4.67 10.51-10.47 10.52l-113.74 0.22c-5.8 0.01-10.52-4.68-10.53-10.48l-0.2-66.14c-0.02-5.8 4.67-10.51 10.47-10.52z"/>
+		</clipPath>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-66.159,-8.276,5.873,-46.948,69.005,17.919)">
+			<stop offset="0" stop-color="#ffffff" stop-opacity=".8"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+		</linearGradient>
+	</defs>
+	<style>
+		.s0 { fill: #ffffff;stroke: url(#g1);stroke-width: 1 } 
+		.s1 { fill: #fbe053;stroke: #fbe053;stroke-linecap: round;stroke-width: 2 } 
+		.s2 { fill: #458458 } 
+		.s3 { fill: #57b257 } 
+	</style>
+	<g clip-path="url(#cp1)">
+		<path fill-rule="evenodd" class="s0" d="m12.47 3.22l113.74-0.22c5.8-0.01 10.52 4.68 10.54 10.48l0.19 66.14c0.02 5.8-4.67 10.51-10.47 10.52l-113.74 0.22c-5.8 0.01-10.52-4.68-10.53-10.48l-0.2-66.14c-0.02-5.8 4.67-10.51 10.47-10.52z"/>
+		<path class="s1" d="m102.24 3.16c2.71 26.41 24.38 34.42 34.88 35.12l0.08-22c0.03-11.2-8.96-13.36-13.46-13.05-7.17 0.15-21.5 0.33-21.5-0.07z"/>
+		<path class="s2" d="m115.8 71.73v19.55c0 0.14-0.11 0.24-0.25 0.24h-7.63c-7.13 0-12.92-5.57-12.92-12.44v-7.35c0-0.13 0.11-0.24 0.25-0.24h20.3c0.14 0 0.25 0.11 0.25 0.24z"/>
+		<path class="s2" d="m137.5 47v16.88c-2.24 2.93-5.84 4.83-9.91 4.83h-8.51v-8.27c0-7.42 6.25-13.44 13.95-13.44z"/>
+		<path class="s3" d="m137.5 71.49v11.46c0 2.14-0.81 4.08-2.15 5.58-2.25 1.87-5.19 2.99-8.39 2.99h-7.63c-0.14 0-0.25-0.1-0.25-0.24v-19.55c0-0.13 0.11-0.24 0.25-0.24z"/>
+	</g>
+	<path class="s3" d="m115.8 60.44v8.27h-8.52c-6.78 0-12.28-5.3-12.28-11.83v-9.88h6.85c7.7 0 13.95 6.02 13.95 13.44z"/>
+</svg>
