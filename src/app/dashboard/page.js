@@ -16,8 +16,8 @@ export default function Dashboard() {
     // Estado para manejar los valores dinámicos en la sección de resumen
     const [summaryValues, setSummaryValues] = useState({
         orders: '99',
-        baskets: '99',
-        units: '4444'
+        units: '99',
+        grams: '99'
     });
 
     return (
@@ -89,19 +89,27 @@ export default function Dashboard() {
                     <SummaryHeader dropdownState={dropdownState} setDropdownState={setDropdownState} />
                     <div className={styles.summaryCardsScrollable}>
                         <SummaryCard firstLineText={'Pedidos'} secondLineText={'realizados'} value={summaryValues.orders}/>
-                        <SummaryCard firstLineText={'Canastas'} secondLineText={'compradas'} value={summaryValues.baskets} secondFigure={true}/>
-                        <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={summaryValues.units}/>
+                        <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={summaryValues.units} secondFigure={true}/>
+                        <SummaryCard firstLineText={'Gramos'} secondLineText={'entregados'} value={summaryValues.grams}/>
                     </div>
                 </section>
 
                 {/* Sección impacto ambiental */}
+                    {/* TODO: esto puede tener modificaciones finales ya que no es la imagen definitiva, pero es un punto de partida avanzado */}
                 <section className={styles.sectionCardEnvironment}>
-                    Aquí va la card que redirige a la vista de métricas impacto ambiental
+                    <div className={styles.bannerCardEnvironment}>
+                        <div className={styles.bannerCardEnvironmentContentWrapper}>
+                            <span className="block text-[1.1rem] md:text-lg lg:text-xl font-bold">¡Buen trabajo!</span>
+                            <span className="block text-[0.95rem] md:text-base lg:text-lg font-normal lg:leading-snug">Al comprar productos afood reduces la huella ambiental.</span>
+                            <button className={styles.bannerCardEnvironmentButton}>Ver más</button>
+                        </div>
+                    </div>
                 </section>
 
                 {/* Sección badges */}
+                    {/* TODO: empezar a construir está sección, será render dinámico, sólo cuando el cliente sobrepase X cantidad de pedidos */}
                 <section className={styles.sectionAchievements}>
-                    Aquí van los badges del cliente
+                    Aquí van el badge del cliente sólo si es too buyer mayor a 15 pedidos
                 </section>
 
                 {/* Sección política de pago y de entrega */}
