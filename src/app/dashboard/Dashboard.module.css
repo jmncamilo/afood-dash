@@ -152,6 +152,7 @@
     text-wrap: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    letter-spacing: 0;
 }
 
 /* =-=-= Sección de resumen con las cards que brindan información de los pedidos del cliente =-=-= */

@@ -5,8 +5,13 @@ import styles from "./Dashboard.module.css";
 import Image from "next/image";
 import { SummaryHeader } from "@/app/dashboard/SummaryHeader";
 import { SummaryCard } from "@/app/dashboard/SummaryCard";
+import { useModal } from "@/hooks/useModal";
+import { DebtDetails } from "@/components/modals/debt-details/DebtDetails";
 
 export default function Dashboard() {
+    // Usando el custom hook para manejar el modal del detalle de la deuda
+    const { isOpen: isOpenDebtDetails, open: openDebtDetails, close: closeDebtDetails } = useModal();
+
     // Estado para manejar el filtro del producto a consultar
     const [dropdownState, setDropdownState] = useState({
         isOpen: false,
@@ -79,7 +84,7 @@ export default function Dashboard() {
 
                 {/* Sección con botón para ver detalles de la deuda */}
                 <section className={styles.sectionButtonDetails}>
-                    <button className={styles.buttonDetails} title={'Ver detalles de la deuda'}>
+                    <button className={styles.buttonDetails} title={'Ver detalles de la deuda'} onClick={openDebtDetails}>
                         Mis Deudas
                     </button>
                 </section>
@@ -123,6 +128,9 @@ export default function Dashboard() {
                     Aquí van las políticas de compra y entrega
                 </section>
             </main>
+
+            {/* TODO: agregar modales para ver beneficios y la deuda detallada*/}
+            {isOpenDebtDetails && <DebtDetails onClose={closeDebtDetails}/>}
         </div>
     );
 }
