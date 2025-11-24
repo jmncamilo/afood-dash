@@ -65,11 +65,11 @@ export default function Dashboard() {
                         <div className={styles.cardFirstColumn}>
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl text-gray-50">Total comprado</span>
-                                <span className="block leading-tight text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">$520.000,00</span>
+                                <span className="block leading-tight text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">$920.000,00</span>
                             </div>
                             <span className={styles.chipCard} aria-hidden={true}></span>
                             <div className={styles.cardWrapperTotal}>
-                                <span className="block leading-tight text-xs md:text-sm lg:text-base font-medium text-red-200">Deuda</span>
+                                <span className="block leading-tight text-xs md:text-sm lg:text-base font-medium text-red-200">Mi deuda</span>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl font-medium text-gray-100">$65.000,00</span>
                             </div>
                         </div>
