@@ -38,13 +38,13 @@
     align-items: center;
     padding: 0;
     margin: 0;
-
 }
 
 .cardBase {
     background-image: url("/card/base-card.svg");
     background-blend-mode: multiply;
     width: 100%;
+    min-width: 265px;
     max-width: 420px;
     aspect-ratio: 3 / 2;
     background-size: contain;
@@ -136,7 +136,7 @@
 
 /* =-=-= Sección del botón que muestra el desglose de la deuda =-=-= */
 .sectionButtonDetails {
-    background-color: rgba(0, 0, 128, 0.2);
+    /*background-color: rgba(0, 0, 128, 0.2);*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -144,11 +144,14 @@
 }
 
 .buttonDetails {
-    width: 32%;
+    width: clamp(95px, 50%, 200px);
     border-radius: 1rem;
-    padding: 0.3rem 0.2rem;
+    padding: 0.25rem 0.4rem;
     font-weight: 500;
     text-align: center;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 /* =-=-= Sección de resumen con las cards que brindan información de los pedidos del cliente =-=-= */
@@ -249,12 +252,13 @@
     justify-content: center;
     align-items: flex-start;
     background-image: url("/banners/environment-card.svg");
-    width: clamp(280px, 100%, 28rem);
+    width: clamp(290px, 100%, 28rem);
     aspect-ratio: 2/1;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     filter: drop-shadow(0 3px 2px rgba(0,0,0,0.40));
+    flex-shrink: 0;
 }
 
 .bannerCardEnvironmentContentWrapper {
@@ -292,7 +296,39 @@
 
 /* =-=-= Sección con los badges del cliente =-=-= */
 .sectionAchievements {
-    background-color: rgba(213, 163, 193, 0.2);
+    /*background-color: rgba(213, 163, 193, 0.2);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.achievementsCardWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/misc/card-top-buyer.svg");
+    width: clamp(280px, 100%, 33rem);
+    aspect-ratio: 4/1;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 4px 3px rgba(0,0,0,0.50));
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.achievementsCardTextContainer {
+    width: clamp(12rem, 45%, 17rem);
+    margin-left: clamp(4rem, 6vw, 2rem);
+    height: 90%;
+    /*background-color: #C2DB9A;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: #1e4e54;
+    padding-left: 0.6rem;
+    line-height: 1rem;
 }
 
 /* =-=-= Sección de políticas afood =-=-= */

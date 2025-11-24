@@ -80,7 +80,7 @@ export default function Dashboard() {
                 {/* Sección con botón para ver detalles de la deuda */}
                 <section className={styles.sectionButtonDetails}>
                     <button className={styles.buttonDetails} title={'Ver detalles de la deuda'}>
-                        Deuda
+                        Mis Deudas
                     </button>
                 </section>
 
@@ -107,9 +107,15 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección badges */}
-                    {/* TODO: empezar a construir está sección, será render dinámico, sólo cuando el cliente sobrepase X cantidad de pedidos */}
+                    {/* TODO: será render dinámico, sólo cuando el cliente sobrepase X cantidad de pedidos. Puede cambiar el diseño, pero más que el bg de la card */}
                 <section className={styles.sectionAchievements}>
-                    Aquí van el badge del cliente sólo si es too buyer mayor a 15 pedidos
+                    <div className={styles.achievementsCardWrapper}>
+                        <div className={styles.achievementsCardTextContainer}>
+                            <span className="block text-[0.7rem] md:text-lg lg:text-xl font-bold">Eres Afoodlover</span>
+                            <span className="block text-[0.7rem] md:text-base lg:text-lg font-normal lg:leading-snug">¡Completaste más de XX pedidos!</span>
+                            <span className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors" onClick={() => alert('Beneficios click...')}>Beneficios</span>
+                        </div>
+                    </div>
                 </section>
 
                 {/* Sección política de pago y de entrega */}
