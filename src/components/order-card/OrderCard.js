@@ -4,7 +4,7 @@ import { valueAccumulator } from "@/lib/calculations/valueAccumulator.js";
 import { formatClientName } from "@/lib/formatters/formatClientName.js"
 
 export default function CreditCard({ data }) {
-    const balance = valueAccumulator(data, 'Precio Total Lechugas');
+    const balance = valueAccumulator(data, 'Precio del Pedido');
 
     return (
         <div className="relative w-full max-w-sm aspect-[1.586/1] bg-gradient-to-br from-green-900 to-green-500 rounded-2xl shadow-xl p-6 flex flex-col justify-between">
@@ -28,7 +28,7 @@ export default function CreditCard({ data }) {
                 <div className="text-white">
                     <p className="text-xs sm:text-sm opacity-80 mb-1">Total Pagado</p>
                     <p className="text-2xl sm:text-3xl font-bold tracking-wider">
-                        {formatCurrency(balance)}
+                        ${formatCurrency(balance)},00
                     </p>
                 </div>
                 <div className="text-white">

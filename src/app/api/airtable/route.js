@@ -15,7 +15,6 @@ export async function GET(req) {
         // Usamos el objeto airtable para establecer fórmula y buscar por nombre de cliente usando template literals
         const formula = `FIND('${customerName.toUpperCase()}', {Id Cumplimiento})`;
 
-        //
         const records = await base(process.env.AIRTABLE_BASE_TABLE_ID).select({
             fields: [
                 'Id Cumplimiento',
@@ -25,16 +24,20 @@ export async function GET(req) {
                 'Status Pago',
                 'Pedido Entregado',
                 'Total Lechugas Entregadas',
-                'Precio Unitario',
                 '# de Canastas',
+                'Precio Unitario',
                 'Precio Total Lechugas',
-                'Precio Total Aromáticas'
+                'Producto Aromáticas',
+                'Cantidad g Aromáticas',
+                'Precio Unitario Aromáticas',
+                'Precio Total Aromáticas',
+                'Precio del Pedido'
             ],
             filterByFormula: formula,
             sort: [{ field: "Id Cumplimiento", direction: "asc" }],
         }).all();
 
-        // Extraemos solo los fields
+        // // Extraemos solo los fields
         const recordsFields = records.map(record => record.fields);
 
         // Respuesta exitosa

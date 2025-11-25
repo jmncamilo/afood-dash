@@ -5,13 +5,16 @@ import OrderCard from "@/components/order-card/OrderCard";
 
 export default function Home() {
     const searchParams = useSearchParams();
-    const customerQuery = searchParams.get("customer"); // Obtenemos el valor de la query string
+    // const customerQuery = searchParams.get("customer"); // Obtenemos el valor de la query string, pero exponemos la consulta
+    const customerQuery = 'monchef'; // nombre de cliente hardcodeado, para no exponerlo en la url del front
     const [data, setData] = useState([]);
 
+    // Construyendo al query
+    const completeQuery = `?customer=${customerQuery}`; // 'sandwich-inc-grill'
 
     useEffect(()=> {
         const fetching = async () => {
-            const response = await fetch(`/api/airtable?customer=${customerQuery}`);
+            const response = await fetch(`/api/airtable${completeQuery}`);
             if (!response.ok) {
                 return alert('No se pudo consumir la API');
             }

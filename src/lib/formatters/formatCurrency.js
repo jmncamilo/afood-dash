@@ -1,7 +1,6 @@
 export function formatCurrency(value) {
     return new Intl.NumberFormat('es-CO', {
-        style: 'currency',
-        currency: 'COP',
+        style: 'decimal',
         minimumFractionDigits: 0
     }).format(value);
 }

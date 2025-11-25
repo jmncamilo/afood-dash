@@ -129,7 +129,6 @@ export default function Dashboard() {
                 </section>
             </main>
 
-            {/* TODO: agregar modales para ver beneficios y la deuda detallada*/}
             {isOpenDebtDetails && <DebtDetails onClose={closeDebtDetails}/>}
         </div>
     );
