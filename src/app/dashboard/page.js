@@ -10,6 +10,7 @@ import { DebtDetails } from "@/components/modals/debt-details/DebtDetails";
 import { useRouter } from "next/navigation";
 import { getSession } from "@/lib/utils/authSession";
 import { Loader } from "@/components/common/Loader";
+import { useFetch } from "@/hooks/useFetch";
 
 export default function Dashboard() {
     // Hook useRouter para redireccionamiento reactivo
@@ -17,6 +18,9 @@ export default function Dashboard() {
 
     // Estado para el loader
     const [isLoading, setIsLoading] = useState(true);
+
+    // Custom hook para manejar el fetching de datos
+    // const {  } = useFetch();
 
     // Verifica que haya sesión iniciada para mostrar la vista
     useEffect(() => {
