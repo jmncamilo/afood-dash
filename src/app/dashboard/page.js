@@ -1,14 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import Image from "next/image";
 import { SummaryHeader } from "@/app/dashboard/SummaryHeader";
 import { SummaryCard } from "@/app/dashboard/SummaryCard";
 import { useModal } from "@/hooks/useModal";
 import { DebtDetails } from "@/components/modals/debt-details/DebtDetails";
+import { useRouter } from "next/navigation";
+import { getSession } from "@/lib/utils/authSession";
+import { Loader } from "@/components/common/Loader";
 
 export default function Dashboard() {
+    // Hook useRouter para redireccionamiento reactivo
+    const router = useRouter();
+
+    // Estado para el loader
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Verifica que haya sesión iniciada para mostrar la vista
+    useEffect(() => {
+        const session = getSession();
+        if (!session) {
+            router.replace('/login');
+        } else {
+            // Usa setTimeout para evitar setState sincrónico
+            setTimeout(() => setIsLoading(false), 0);
+        }
+    }, [router]);
+
     // Usando el custom hook para manejar el modal del detalle de la deuda
     const { isOpen: isOpenDebtDetails, open: openDebtDetails, close: closeDebtDetails } = useModal();
 
@@ -85,7 +105,7 @@ export default function Dashboard() {
                 {/* Sección con botón para ver detalles de la deuda */}
                 <section className={styles.sectionButtonDetails}>
                     <button className={styles.buttonDetails} title={'Ver detalles de la deuda'} onClick={openDebtDetails}>
-                        Mis Deudas
+                        Ver Deuda
                     </button>
                 </section>
 
@@ -129,7 +149,11 @@ export default function Dashboard() {
                 </section>
             </main>
 
+            {/* Componente para mostrar detalles de la deuda */}
             {isOpenDebtDetails && <DebtDetails onClose={closeDebtDetails}/>}
+
+            {/* Componente loader */}
+            {isLoading && <Loader/>}
         </div>
     );
 }
