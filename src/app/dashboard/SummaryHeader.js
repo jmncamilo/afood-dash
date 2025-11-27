@@ -1,7 +1,14 @@
-export function SummaryHeader({ dropdownState, setDropdownState }) {
+import { useState } from "react";
+
+export function SummaryHeader({ additionalData, updateAdditionalData }) {
+    const [dropdownState, setDropdownState] = useState({
+        isOpen: false,
+        selectedProduct: 'Productos',
+    });
+
     // Handler para solo desplegar u ocultar las opciones cuando se da click
     const toggleDropdown = () => {
-        setDropdownState(prev => ({
+        setDropdownState(prev => /** @type {{ isOpen: boolean, selectedProduct: string }} */ ({
            ...prev,
             isOpen: !prev.isOpen
         }));

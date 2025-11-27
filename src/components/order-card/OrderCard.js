@@ -1,7 +1,7 @@
 import { formatCurrency } from "@/lib/formatters/formatCurrency.js";
 import Image from "next/image";
 import { valueAccumulator } from "@/lib/calculations/valueAccumulator.js";
-import { formatClientName } from "@/lib/formatters/formatClientName.js"
+import { formatClientName } from "@/lib/formatters/formatClientName.js";
 
 export default function CreditCard({ data }) {
     const balance = valueAccumulator(data, 'Precio del Pedido');

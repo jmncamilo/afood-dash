@@ -82,20 +82,7 @@ export default function Dashboard() {
     // Usando el custom hook para manejar el modal del detalle de la deuda
     const { isOpen: isOpenDebtDetails, open: openDebtDetails, close: closeDebtDetails } = useModal();
 
-    // Estado para manejar el filtro del producto a consultar
-    const [dropdownState, setDropdownState] = useState({
-        isOpen: false,
-        selectedProduct: 'Productos',
-    });
-
-    // Estado para manejar los valores dinámicos en la sección de resumen
-    const [summaryValues, setSummaryValues] = useState({
-        orders: '99',
-        units: '99',
-        grams: '99'
-    });
-
-    // Prueba
+    // TESTING CJ
     const testConsolePrinting = () => {
         console.log('Pedidos', ordersData);
         console.log('Deudas', debtOrdersData);
@@ -171,7 +158,7 @@ export default function Dashboard() {
 
                 {/* Sección resumen de pedidos */}
                 <section className={styles.sectionSummaryOrders}>
-                    <SummaryHeader dropdownState={dropdownState} setDropdownState={setDropdownState} />
+                    <SummaryHeader additionalData={additionalData} updateAdditionalData={updateStateByKey} />
                     <div className={styles.summaryCardsScrollable}>
                         <SummaryCard firstLineText={'Pedidos'} secondLineText={'realizados'} value={additionalData.orders}/>
                         <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={additionalData.units} secondFigure={true}/>
