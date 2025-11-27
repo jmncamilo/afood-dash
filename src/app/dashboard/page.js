@@ -142,13 +142,15 @@ export default function Dashboard() {
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl text-gray-50">Total comprado</span>
                                 <span className="block leading-tight text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">
-                                    ${formatCurrency(valueAccumulator(ordersData?.data, 'Precio del Pedido') || 999000 )},00
+                                    ${formatCurrency(valueAccumulator(ordersData?.data, 'Precio del Pedido') || 999000)},00
                                 </span>
                             </div>
                             <span className={styles.chipCard} aria-hidden={true}></span>
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-xs md:text-sm lg:text-base font-medium text-red-200">Mi deuda</span>
-                                <span className="block leading-tight text-md md:text-lg lg:text-xl font-medium text-gray-100">$65.000,00</span>
+                                <span className="block leading-tight text-md md:text-lg lg:text-xl font-medium text-gray-100">
+                                    ${formatCurrency(valueAccumulator(debtOrdersData, 'Precio del Pedido') || 65000)},00
+                                </span>
                             </div>
                         </div>
                         <div className={styles.cardSecondColumn}>
