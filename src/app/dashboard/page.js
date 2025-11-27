@@ -12,6 +12,13 @@ import { getSession, clearSession } from "@/lib/utils/authSession";
 import { Loader } from "@/components/common/Loader";
 import { useFetch } from "@/hooks/useFetch";
 import { filterOrders } from "@/lib/utils/filterOrders";
+import { useObjectState } from "@/hooks/useObjectState";
+import { additionalDataDefaultValues } from "@/app/dashboard/additionalDataDefaultValues";
+import { formatCapitalize } from "@/lib/formatters/formatCapitalize";
+import { formatClientName } from "@/lib/formatters/formatClientName";
+import { formatCurrency } from "@/lib/formatters/formatCurrency";
+import { formatSliceNit } from "@/lib/formatters/formatSliceNit";
+import { valueAccumulator } from "@/lib/calculations/valueAccumulator";
 
 export default function Dashboard() {
     // Hook useRouter para redireccionamiento reactivo
@@ -21,7 +28,7 @@ export default function Dashboard() {
     const [isLoading, setIsLoading] = useState(true);
 
     // Estado para manejar información dinámica del cliente
-
+    const { objectData:additionalData, setObjectData:setAdditionalData, updateStateByKey } = useObjectState(additionalDataDefaultValues);
 
     // Custom hook para el fetching de datos con url del endpoint base para la consulta de los datos desde airtable
     const { data: ordersData, execute, loading } = useFetch('/api/airtable');
@@ -53,6 +60,9 @@ export default function Dashboard() {
                 }
                 // Filtra y setea la data del fetching para obtener los pedidos pendientes por pagar
                 setDebtOrdersData(filterOrders(data.data, 'Status Pago', 'Sin Pagar'));
+                // Seteando información adicional importante para ux
+                updateStateByKey('customerName', formatCapitalize(formatClientName(data?.data?.[0]?.['Id Cumplimiento'])));
+                updateStateByKey('customerNit', formatSliceNit(session?.nit || additionalData.customerNit));
                 // UX
                 alert('Datos cargados correctamente...');
                 setIsLoading(false);
@@ -103,15 +113,15 @@ export default function Dashboard() {
                         <div className="relative w-12 h-12 rounded-full bg-gray-200 mr-4 flex items-center justify-center overflow-hidden">
                             <Image
                                 className={styles.customerLogo}
-                                src="/branding/symbol-afood.svg"
+                                src={`/logos/${additionalData?.customerLogo || 'default-afood'}.svg`}
                                 alt="Logo del cliente"
                                 layout="fill"
                                 objectFit="cover"
                             />
                         </div>
-                        <div className="flex-grow leading-tight">
-                            <div className="font-bold text-base text-neutral-700">Limoncello</div>
-                            <div className="text-sm text-gray-600 tracking-widest font-medium">. . . . . 1389</div>
+                        <div className="flex-grow leading-tight truncate">
+                            <div className="font-bold text-base text-neutral-700">{additionalData.customerName}</div>
+                            <div className="text-sm text-gray-600 tracking-widest font-medium">. . . . . {additionalData.customerNit}</div>
                         </div>
                         <div className="relative w-12 h-6 bg-transparent ml-2 flex items-center justify-center">
                             <Image
@@ -131,7 +141,9 @@ export default function Dashboard() {
                         <div className={styles.cardFirstColumn}>
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl text-gray-50">Total comprado</span>
-                                <span className="block leading-tight text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">$920.000,00</span>
+                                <span className="block leading-tight text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">
+                                    ${formatCurrency(valueAccumulator(ordersData?.data, 'Precio del Pedido') || 999000 )},00
+                                </span>
                             </div>
                             <span className={styles.chipCard} aria-hidden={true}></span>
                             <div className={styles.cardWrapperTotal}>
@@ -159,9 +171,9 @@ export default function Dashboard() {
                 <section className={styles.sectionSummaryOrders}>
                     <SummaryHeader dropdownState={dropdownState} setDropdownState={setDropdownState} />
                     <div className={styles.summaryCardsScrollable}>
-                        <SummaryCard firstLineText={'Pedidos'} secondLineText={'realizados'} value={summaryValues.orders}/>
-                        <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={summaryValues.units} secondFigure={true}/>
-                        <SummaryCard firstLineText={'Gramos'} secondLineText={'entregados'} value={summaryValues.grams}/>
+                        <SummaryCard firstLineText={'Pedidos'} secondLineText={'realizados'} value={additionalData.orders}/>
+                        <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={additionalData.units} secondFigure={true}/>
+                        <SummaryCard firstLineText={'Gramos'} secondLineText={'entregados'} value={additionalData.grams}/>
                     </div>
                 </section>
 
