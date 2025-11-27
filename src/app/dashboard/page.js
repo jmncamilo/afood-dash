@@ -8,9 +8,10 @@ import { SummaryCard } from "@/app/dashboard/SummaryCard";
 import { useModal } from "@/hooks/useModal";
 import { DebtDetails } from "@/components/modals/debt-details/DebtDetails";
 import { useRouter } from "next/navigation";
-import { getSession } from "@/lib/utils/authSession";
+import { getSession, clearSession } from "@/lib/utils/authSession";
 import { Loader } from "@/components/common/Loader";
 import { useFetch } from "@/hooks/useFetch";
+import { filterOrders } from "@/lib/utils/filterOrders";
 
 export default function Dashboard() {
     // Hook useRouter para redireccionamiento reactivo
@@ -19,19 +20,54 @@ export default function Dashboard() {
     // Estado para el loader
     const [isLoading, setIsLoading] = useState(true);
 
-    // Custom hook para manejar el fetching de datos
-    // const {  } = useFetch();
+    // Estado para manejar información dinámica del cliente
+
+
+    // Custom hook para el fetching de datos con url del endpoint base para la consulta de los datos desde airtable
+    const { data: ordersData, execute, loading } = useFetch('/api/airtable');
+
+    // Estado para almacenar los pedidos que aún están pendientes de pagar (deudas del cliente)
+    const [debtOrdersData, setDebtOrdersData] = useState([]);
 
     // Verifica que haya sesión iniciada para mostrar la vista
     useEffect(() => {
-        const session = getSession();
-        if (!session) {
-            router.replace('/login');
-        } else {
-            // Usa setTimeout para evitar setState sincrónico
-            setTimeout(() => setIsLoading(false), 0);
-        }
-    }, [router]);
+        const loadData = async () => {
+            try {
+                // Verifica datos válidos de autenticación
+                const session = getSession();
+                if (!session) {
+                    router.replace('/login');
+                    return;
+                }
+                // Obtiene el nombre del cliente y concatenándolo para construir la query string de la url del fetch
+                const completeQuery = `?customer=${session.clientNameQuery}`;
+                    console.log(completeQuery);
+                // Ejecuta el fetching
+                const data = await execute(`/api/airtable${completeQuery}`);
+                // Valída la respuesta del back para dar más robustez
+                if (!data.success) {
+                    alert('Error en el servidor, vuelve a iniciar sesión...');
+                    clearSession();
+                    router.replace('/login');
+                    return;
+                }
+                // Filtra y setea la data del fetching para obtener los pedidos pendientes por pagar
+                setDebtOrdersData(filterOrders(data.data, 'Status Pago', 'Sin Pagar'));
+                // UX
+                alert('Datos cargados correctamente...');
+                setIsLoading(false);
+
+            } catch (err) {
+                console.error("Error cargando pedidos:", err);
+                alert('Error en el servidor, vuelve a iniciar sesión...');
+                clearSession();
+                router.replace('/login');
+            }
+        };
+
+        loadData();
+    }, []);
+
 
     // Usando el custom hook para manejar el modal del detalle de la deuda
     const { isOpen: isOpenDebtDetails, open: openDebtDetails, close: closeDebtDetails } = useModal();
@@ -48,6 +84,12 @@ export default function Dashboard() {
         units: '99',
         grams: '99'
     });
+
+    // Prueba
+    const testConsolePrinting = () => {
+        console.log('Pedidos', ordersData);
+        console.log('Deudas', debtOrdersData);
+    }
 
     return (
         // Contenedor padre
@@ -130,7 +172,7 @@ export default function Dashboard() {
                         <div className={styles.bannerCardEnvironmentContentWrapper}>
                             <span className="block text-[1.1rem] md:text-lg lg:text-xl font-bold">¡Buen trabajo!</span>
                             <span className="block text-[0.95rem] md:text-base lg:text-lg font-normal lg:leading-snug">Al comprar productos afood reduces la huella ambiental.</span>
-                            <button className={styles.bannerCardEnvironmentButton}>Ver más</button>
+                            <button className={styles.bannerCardEnvironmentButton} onClick={testConsolePrinting}>Ver más</button>
                         </div>
                     </div>
                 </section>

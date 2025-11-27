@@ -5,7 +5,7 @@ export function useFetch(url, defaultOptions = {}) {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const execute = async (overrideOptions = {}, overrideUrl = null) => {
+    const execute = async (overrideUrl = null, overrideOptions = {}) => {
         setLoading(true);
         setError(null);
 
@@ -18,6 +18,11 @@ export function useFetch(url, defaultOptions = {}) {
 
         try {
             const res = await fetch(finalUrl, finalOptions);
+            if (!res.ok) {
+                const json = await res.json();
+                console.error(`HTTP error: ${res.status}. ${json.message}`);
+                throw new Error(json.message);
+            }
             const json = await res.json();
             setData(json);
             return json;
