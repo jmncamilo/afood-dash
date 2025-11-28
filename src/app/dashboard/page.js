@@ -156,7 +156,7 @@ export default function Dashboard() {
                     </button>
                 </section>
 
-                {/* Sección resumen de pedidos */}
+                {/* Sección resumen de pedidos */} {/* TODO: seguir con esto... */}
                 <section className={styles.sectionSummaryOrders}>
                     <SummaryHeader additionalData={additionalData} updateAdditionalData={updateStateByKey} />
                     <div className={styles.summaryCardsScrollable}>
@@ -179,7 +179,7 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección badges */}
-                    {/* TODO: será render dinámico, sólo cuando el cliente sobrepase X cantidad de pedidos. Puede cambiar el diseño, pero más que el bg de la card */}
+                    {/* TODO: será render dinámico, sólo cuando el cliente sobrepase X cantidad de pedidos. Puede cambiar el diseño, pero más que nada el bg de la card */}
                 <section className={styles.sectionAchievements}>
                     <div className={styles.achievementsCardWrapper}>
                         <div className={styles.achievementsCardTextContainer}>
