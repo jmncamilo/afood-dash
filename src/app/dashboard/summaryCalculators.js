@@ -1,3 +1,8 @@
+import { calculateTotalQuantityForAromatics } from "@/lib/calculations/calculateTotalQuantityForAromatics";
+
+// Keys para setear la data que necesita SummaryCard para renderizarse correctamente
+const keysToSummaryCard = ['orders', 'units', 'grams'];
+
 // Mapeo de funciones a ejecutar de acuerdo a la opción seleccionada en SummaryHeader
 export const dropdownActions = {
     'Todos': () => {
@@ -6,8 +11,8 @@ export const dropdownActions = {
     'Lechuga': () => {
         return 0;
     },
-    'Aromática': () => {
-        return 0;
+    'Aromática': (data, setter) => {
+        const totalAromatics = calculateTotalQuantityForAromatics(data);
     },
     'Cilantrón': () => {
         return 0;
