@@ -1,4 +1,6 @@
 import { calculateTotalQuantityForAromatics } from "@/lib/calculations/calculateTotalQuantityForAromatics";
+import { countOrdersWithProduct } from "@/lib/utils/countOrdersWithProduct";
+import { GR_AROMATICS_PRODUCTS } from "@/constants/afoodProducts";
 
 // Keys para setear la data que necesita SummaryCard para renderizarse correctamente
 const keysToSummaryCard = ['orders', 'units', 'grams'];
@@ -12,7 +14,9 @@ export const dropdownActions = {
         return 0;
     },
     'Aromática': (data, setter) => {
-        const totalAromatics = calculateTotalQuantityForAromatics(data);
+        const totalOrders = 0;
+        const totalUnits = 0;
+        const totalGrAromatics = calculateTotalQuantityForAromatics(data);
     },
     'Cilantrón': () => {
         return 0;

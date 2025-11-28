@@ -11,13 +11,15 @@ export function countOrdersWithProduct(data, productColumn, productName) {
         if (!value) return false;
 
         if (Array.isArray(value)) {
-            // Para arrays de productos
-            return value.some(f => f.includes(productName));
+            // Si es un array, devuelve true si al menos uno coincide
+            return value.some(v => {
+                // Convertimos a string por si acaso v no es string
+                return String(v).includes(productName);
+            });
         } else if (typeof value === 'string') {
-            // Para strings que representan un producto
             return value.includes(productName);
         } else {
-            // Para valores únicos tipo number, si es mayor a 0 lo cuenta como pedido
+            // Para números u otros tipos truthy
             return Boolean(value);
         }
     }).length;
