@@ -64,7 +64,7 @@ export default function Dashboard() {
                 updateStateByKey('customerName', formatCapitalize(formatClientName(data?.data?.[0]?.['Id Cumplimiento'])));
                 updateStateByKey('customerNit', formatSliceNit(session?.nit || additionalData.customerNit));
                 // UX
-                alert('Datos cargados correctamente...');
+                // alert('Datos cargados correctamente...'); // TESTING CJ
                 setIsLoading(false);
 
             } catch (err) {

@@ -14,9 +14,13 @@ function setSummaryValues(obj, setter) {
 // Mapeo de funciones a ejecutar de acuerdo a la opción seleccionada en SummaryHeader
 export const dropdownActions = {
     'Todos': (data, setter) => {
-        const orders = countOrdersWithProduct(data, 'Pedido Entregado', 'Sí');
-
-        return 0;
+        const orders = countOrdersWithProduct(data, 'Pedido Entregado', 'Sí') ?? 0;
+        const units =
+            (countOrdersWithProduct(data, 'Producto Aromáticas', 'Cilantrón')
+            + calculateNumericColumnTotal(data, 'Total Lechugas Entregadas')) ?? 0;
+        const grams = calculateTotalQuantityForAromatics(data) ?? 0;
+        const dataToSet = { orders, units, grams };
+        setSummaryValues(dataToSet, setter);
     },
     'Lechuga': (data, setter) => {
         const orders = countOrdersWithProduct(data, 'Total Lechugas Entregadas', undefined);
@@ -33,15 +37,15 @@ export const dropdownActions = {
         setSummaryValues(dataToSet, setter);
     },
     'Cilantrón': (data, setter) => {
-        const orders = countOrdersWithProduct(data, 'Producto Aromáticas', 'Cilantrón');
-        const units = calculateTotalQuantityForProduct(data, 'Producto Aromáticas', 'Cantidad g Aromáticas', 'Cilantrón');
+        const orders = countOrdersWithProduct(data, 'Producto Aromáticas', 'Cilantrón') ?? 0;
+        const units = calculateTotalQuantityForProduct(data, 'Producto Aromáticas', 'Cantidad g Aromáticas', 'Cilantrón') ?? 0;
         const grams = 0;
         const dataToSet = { orders, units, grams };
         setSummaryValues(dataToSet, setter);
     },
 };
 
-// Esta función maneja la invocación de las funciones calculadoras que han sido mapeadas arriba
+// Esta función maneja la invocación de las funciones calculadoras que han sido mapeadas al inicio de este archivo
 export function invokeDropdownAction(key, data, setter) {
     const action = dropdownActions[key] || (() => 0); // fallback
     return action(data, setter);
