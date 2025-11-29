@@ -136,7 +136,7 @@ export default function Dashboard() {
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-xs md:text-sm lg:text-base font-medium text-red-200">Mi deuda</span>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl font-medium text-gray-100">
-                                    ${formatCurrency(valueAccumulator(debtOrdersData, 'Precio del Pedido') || 65000)},00
+                                    ${formatCurrency(valueAccumulator(debtOrdersData, 'Precio del Pedido') || 99999)},00
                                 </span>
                             </div>
                         </div>
@@ -158,7 +158,7 @@ export default function Dashboard() {
 
                 {/* Sección resumen de pedidos */} {/* TODO: seguir con esto... */}
                 <section className={styles.sectionSummaryOrders}>
-                    <SummaryHeader additionalData={additionalData} updateAdditionalData={updateStateByKey} />
+                    <SummaryHeader ordersData={ordersData} additionalData={additionalData} updateAdditionalData={updateStateByKey} />
                     <div className={styles.summaryCardsScrollable}>
                         <SummaryCard firstLineText={'Pedidos'} secondLineText={'realizados'} value={additionalData.orders}/>
                         <SummaryCard firstLineText={'Unidades'} secondLineText={'entregadas'} value={additionalData.units} secondFigure={true}/>

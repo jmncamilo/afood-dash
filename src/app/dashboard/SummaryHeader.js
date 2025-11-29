@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { invokeDropdownAction } from "@/app/dashboard/summaryCalculators";
 
-export function SummaryHeader({ additionalData, updateAdditionalData }) {
+export function SummaryHeader({ ordersData, additionalData, updateAdditionalData }) {
     const [dropdownState, setDropdownState] = useState({
         isOpen: false,
         selectedProduct: 'Productos',
@@ -21,6 +22,13 @@ export function SummaryHeader({ additionalData, updateAdditionalData }) {
             selectedProduct: selectedProduct,
         });
     };
+
+    // Efecto que maneja el renderizado dinámico actualziando el estado con la information que van en SummaryCard
+    useEffect(() => {
+        if(!ordersData?.data) return;
+        console.log(ordersData);
+        invokeDropdownAction(dropdownState.selectedProduct, ordersData.data, updateAdditionalData);
+    }, [dropdownState.selectedProduct, ordersData]);
 
     return (
              // Header con título y desplegable
