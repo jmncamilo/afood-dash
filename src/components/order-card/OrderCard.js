@@ -1,10 +1,10 @@
 import { formatCurrency } from "@/lib/formatters/formatCurrency.js";
 import Image from "next/image";
-import { valueAccumulator } from "@/lib/calculations/valueAccumulator.js";
+import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateIntegerColumnTotal.js";
 import { formatClientName } from "@/lib/formatters/formatClientName.js";
 
 export default function CreditCard({ data }) {
-    const balance = valueAccumulator(data, 'Precio del Pedido');
+    const balance = calculateIntegerColumnTotal(data, 'Precio del Pedido');
 
     return (
         <div className="relative w-full max-w-sm aspect-[1.586/1] bg-gradient-to-br from-green-900 to-green-500 rounded-2xl shadow-xl p-6 flex flex-col justify-between">

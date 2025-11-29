@@ -2,6 +2,7 @@ import { calculateTotalQuantityForAromatics } from "@/lib/calculations/calculate
 import { countOrdersWithProduct } from "@/lib/utils/countOrdersWithProduct";
 import { GR_AROMATICS_PRODUCTS } from "@/constants/afoodProducts";
 import { calculateTotalQuantityForProduct } from "@/lib/calculations/calculateTotalQuantityForProduct";
+import { calculateNumericColumnTotal } from "@/lib/calculations/calculateNumericColumnTotal";
 
 // Función para reutilizar la lógica cuando se invoca el setter del estado que muestra la información en SummaryCards
 function setSummaryValues(obj, setter) {
@@ -13,19 +14,21 @@ function setSummaryValues(obj, setter) {
 // Mapeo de funciones a ejecutar de acuerdo a la opción seleccionada en SummaryHeader
 export const dropdownActions = {
     'Todos': (data, setter) => {
+        const orders = countOrdersWithProduct(data, 'Pedido Entregado', 'Sí');
+
         return 0;
     },
     'Lechuga': (data, setter) => {
         const orders = countOrdersWithProduct(data, 'Total Lechugas Entregadas', undefined);
-        const units = 0;
+        const units = calculateNumericColumnTotal(data, 'Total Lechugas Entregadas');
         const grams = 0;
-        return 0;
+        const dataToSet = { orders, units, grams };
+        setSummaryValues(dataToSet, setter);
     },
     'Aromática': (data, setter) => {
         const orders = countOrdersWithProduct(data, 'Producto Aromáticas', GR_AROMATICS_PRODUCTS) ?? 0;
         const units = 0;
         const grams = calculateTotalQuantityForAromatics(data) ?? 0;
-
         const dataToSet = { orders, units, grams };
         setSummaryValues(dataToSet, setter);
     },
@@ -33,7 +36,6 @@ export const dropdownActions = {
         const orders = countOrdersWithProduct(data, 'Producto Aromáticas', 'Cilantrón');
         const units = calculateTotalQuantityForProduct(data, 'Producto Aromáticas', 'Cantidad g Aromáticas', 'Cilantrón');
         const grams = 0;
-
         const dataToSet = { orders, units, grams };
         setSummaryValues(dataToSet, setter);
     },
