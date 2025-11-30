@@ -9,10 +9,7 @@ import { countItems } from "@/lib/utils/countItems";
 export function executeOrderProductHandlers(orderData) {
     // Ejecuta los handlers y devuelve un array de strings
     const orderDetails = orderProductMap
-        .map(({name, handler}) => {
-            console.log(`Ejecutando el handler: ${name}`);
-            return handler(orderData);
-        })
+        .map(({name, handler}) => handler(orderData))
         .filter(detail => detail.trim() !== "") // Filtra los strings vacíos del array construido
         .join(', '); // Fusiona el array de strings en un solo string (detalle de productos y cantidades del pedido)
 

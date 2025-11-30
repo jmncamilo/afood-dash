@@ -87,9 +87,6 @@ export default function Dashboard() {
     const testConsolePrinting = () => {
         console.log('Pedidos', ordersData);
         console.log('Deudas', debtOrdersData);
-        debtOrdersData.forEach((currentOrder) => {
-            console.log(executeOrderProductHandlers(currentOrder));
-        });
     }
 
     return (
@@ -140,7 +137,7 @@ export default function Dashboard() {
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-xs md:text-sm lg:text-base font-medium text-red-200">Mi deuda</span>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl font-medium text-gray-100">
-                                    ${formatCurrency(calculateIntegerColumnTotal(debtOrdersData, 'Precio del Pedido') || 99999)},00
+                                    ${formatCurrency(calculateIntegerColumnTotal(debtOrdersData, 'Precio del Pedido') || 0)},00
                                 </span>
                             </div>
                         </div>

@@ -1,6 +1,9 @@
 import styles from "./DebtDetails.module.css";
 import Image from "next/image";
 import { OrderRow } from "@/components/modals/debt-details/OrderRow";
+import { executeOrderProductHandlers } from "@/components/modals/debt-details/executeOrderProductHandlers";
+import { formatClientOrderId } from "@/lib/formatters/formatClientOrderId";
+import { formatCurrency } from "@/lib/formatters/formatCurrency";
 
 export function DebtDetails({ onClose, debtOrdersData }) {
     return (
@@ -26,15 +29,32 @@ export function DebtDetails({ onClose, debtOrdersData }) {
                     </div>
 
                     <div className={styles.detailSection}>
-                        {/* TODO: esto se itera con map y con formateadores de texto para devolver únicamente el string que se necesita en cada prop. Se pasa la data general obtenida desde la api y los formateadores deberán hacer su trabajo */}
-                        <OrderRow qtyItems={'2'} products={'48 lech, 12 cilan'} total={'151.968'} date={'24/11/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
-                        <OrderRow qtyItems={'3'} products={'999 lech, 999gr albah, 4444gr hierb'} total={'999.000'} date={'11/12/25'}/>
+                        {!!debtOrdersData?.length
+                            ? (
+                                debtOrdersData.map(order => {
+                                    const { orderDetails, totalItemsInOrder } = executeOrderProductHandlers(order);
+                                    return (
+                                        <OrderRow
+                                            key={formatClientOrderId(order?.['Id Cumplimiento'])}
+                                            qtyItems={totalItemsInOrder}
+                                            products={orderDetails}
+                                            total={formatCurrency(order?.['Precio del Pedido'])}
+                                            date={order?.['Fecha real de entrega raw']}/>
+                                    )
+                                })
+                            )
+                            : (
+                                <div className="flex flex-col items-center justify-center gap-2 py-6 px-4">
+                                    <span className="text-5xl">✨</span>
+                                    <span className="text-lg font-medium text-[#0f0f0f]">
+                                        ¡Todo al día!
+                                    </span>
+                                    <span className="text-sm text-[#A8A8A8] text-center">
+                                        No tienes deudas pendientes
+                                    </span>
+                                </div>
+                            )
+                        }
                     </div>
 
                     <div className={styles.buttonsFooterSection}>
@@ -51,7 +71,12 @@ export function DebtDetails({ onClose, debtOrdersData }) {
                                 />
                                 Dudas
                             </button>
-                            <button className={styles.firstButton}>Pagar</button>
+                            <button
+                                className={styles.firstButton}
+                                disabled={!debtOrdersData?.length} // TODO: cambiar estilos del botón cuando está deshabilitado
+                            >
+                                Pagar
+                            </button>
                         </div>
                     </div>
                 </div>
