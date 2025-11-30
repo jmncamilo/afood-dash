@@ -1,4 +1,4 @@
-// Calcula la cantidad total de un producto específico sumando los valores asociados en dos columnas (Airtable) de un array de objetos
+// Calcula la cantidad total de un producto específico sumando los valores asociados en dos columnas array (Airtable) de un array de objetos
 export function calculateTotalQuantityForProduct(data, productColumn, quantityColumn, productName) {
     if (!Array.isArray(data)) return 0; // Guard clause por si le llega algo que no es array
 

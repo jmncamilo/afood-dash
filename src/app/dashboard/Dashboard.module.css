@@ -17,7 +17,7 @@
 
 /* =-=-= Configuración para el header de cliente =-=-= */
 .customerHeader {
-    background-color: rgba(232, 118, 199, 0.2);
+    /*background-color: rgba(232, 118, 199, 0.2);*/
     display: flex;
     justify-content: center;
     align-items: center;

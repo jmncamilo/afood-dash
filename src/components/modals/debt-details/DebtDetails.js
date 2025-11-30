@@ -2,7 +2,7 @@ import styles from "./DebtDetails.module.css";
 import Image from "next/image";
 import { OrderRow } from "@/components/modals/debt-details/OrderRow";
 
-export function DebtDetails({ onClose }) {
+export function DebtDetails({ onClose, debtOrdersData }) {
     return (
         <div
             className="fixed inset-0 bg-black/40 backdrop-blur-md backdrop-saturate-150 flex items-center justify-center p-0 md:p-6 lg:p-8 z-50 overflow-hidden"

@@ -156,7 +156,6 @@ export default function Dashboard() {
                     </button>
                 </section>
 
-                {/* Sección resumen de pedidos */} {/* TODO: seguir con esto... */}
                 <section className={styles.sectionSummaryOrders}>
                     <SummaryHeader ordersData={ordersData} additionalData={additionalData} updateAdditionalData={updateStateByKey} />
                     <div className={styles.summaryCardsScrollable}>
@@ -197,7 +196,7 @@ export default function Dashboard() {
             </main>
 
             {/* Componente para mostrar detalles de la deuda */}
-            {isOpenDebtDetails && <DebtDetails onClose={closeDebtDetails}/>}
+            {isOpenDebtDetails && <DebtDetails onClose={closeDebtDetails} debtOrdersData={debtOrdersData}/>}
 
             {/* Componente loader */}
             {isLoading && <Loader/>}
