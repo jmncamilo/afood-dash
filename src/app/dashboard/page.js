@@ -19,6 +19,7 @@ import { formatClientName } from "@/lib/formatters/formatClientName";
 import { formatCurrency } from "@/lib/formatters/formatCurrency";
 import { formatSliceNit } from "@/lib/formatters/formatSliceNit";
 import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateIntegerColumnTotal";
+import { executeOrderProductHandlers } from "@/components/modals/debt-details/executeOrderProductHandlers";
 
 export default function Dashboard() {
     // Hook useRouter para redireccionamiento reactivo
@@ -86,6 +87,9 @@ export default function Dashboard() {
     const testConsolePrinting = () => {
         console.log('Pedidos', ordersData);
         console.log('Deudas', debtOrdersData);
+        debtOrdersData.forEach((currentOrder) => {
+            console.log(executeOrderProductHandlers(currentOrder));
+        });
     }
 
     return (

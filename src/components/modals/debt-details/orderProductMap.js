@@ -16,14 +16,14 @@ export const orderProductMap = [
         // Columna: 'Productos Aromáticas' (formato gr)
         name: "handleAromaticsByGrams",
         handler: (data) => {
-            const valueProductAromatics = data?.['Productos Aromáticas']; // Columna Airtable productos
+            const valueProductAromatics = data?.['Producto Aromáticas']; // Columna Airtable productos
             const valueQtyAromatics = data?.['Cantidad g Aromáticas']; // Columna Airtable cantidades
             if (!Array.isArray(valueProductAromatics) || !Array.isArray(valueQtyAromatics)) return '';
 
             return valueProductAromatics
                 .reduce((acc, product) => {
                     if (!GR_AROMATICS_PRODUCTS.includes(product)) return acc;
-                    const qtyProduct = calculateTotalQuantityForProduct([data], 'Productos Aromáticas', 'Cantidad g Aromáticas', product);
+                    const qtyProduct = calculateTotalQuantityForProduct([data], 'Producto Aromáticas', 'Cantidad g Aromáticas', product);
                     if (isNaN(qtyProduct) || qtyProduct <= 0) return acc;
                     acc.push(`${qtyProduct}gr ${formatSliceFirstFive(product).toLowerCase()}`);
                     return acc;
@@ -35,14 +35,14 @@ export const orderProductMap = [
         // Columna: 'Productos Aromáticas' (formato unidades)
         name: "handleAromaticsByUnits",
         handler: (data) => {
-            const valueProductAromatics = data?.['Productos Aromáticas']; // Columna Airtable productos
+            const valueProductAromatics = data?.['Producto Aromáticas']; // Columna Airtable productos
             const valueQtyAromatics = data?.['Cantidad g Aromáticas']; // Columna Airtable cantidades
             if (!Array.isArray(valueProductAromatics) || !Array.isArray(valueQtyAromatics)) return '';
 
             return valueProductAromatics
                 .reduce((acc, product) => {
                     if (!UNITS_AROMATICS_PRODUCTS.includes(product)) return acc;
-                    const qtyProduct = calculateTotalQuantityForProduct([data], 'Productos Aromáticas', 'Cantidad g Aromáticas', product);
+                    const qtyProduct = calculateTotalQuantityForProduct([data], 'Producto Aromáticas', 'Cantidad g Aromáticas', product);
                     if (isNaN(qtyProduct) || qtyProduct <= 0) return acc;
                     acc.push(`${qtyProduct}paq ${formatSliceFirstFive(product).toLowerCase()}`);
                     return acc;
