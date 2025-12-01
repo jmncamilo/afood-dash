@@ -54,7 +54,7 @@ export default function Dashboard() {
                 const data = await execute(`/api/airtable${completeQuery}`);
                 // Valída la respuesta del back para dar más robustez
                 if (!data.success) {
-                    alert('Error en el servidor, vuelve a iniciar sesión...');
+                    alert('Error en el servidor, vuelve a iniciar sesión...'); // TODO: hacer modal esto
                     clearSession();
                     router.replace('/login');
                     return;
@@ -64,8 +64,8 @@ export default function Dashboard() {
                 // Seteando información adicional importante para ux
                 updateStateByKey('customerName', formatCapitalize(formatClientName(data?.data?.[0]?.['Id Cumplimiento'])));
                 updateStateByKey('customerNit', formatSliceNit(session?.nit || additionalData.customerNit));
+                updateStateByKey('customerLogo', session?.clientNameQuery);
                 // UX
-                // alert('Datos cargados correctamente...'); // TESTING CJ
                 setIsLoading(false);
 
             } catch (err) {
@@ -101,10 +101,11 @@ export default function Dashboard() {
                         <div className="relative w-12 h-12 rounded-full bg-gray-200 mr-4 flex items-center justify-center overflow-hidden">
                             <Image
                                 className={styles.customerLogo}
-                                src={`/logos/${additionalData?.customerLogo || 'default-afood'}.svg`}
+                                src={additionalData?.customerLogo?.trim() ? `/logos/${additionalData.customerLogo}.png` : '/logos/default-afood.svg'}
                                 alt="Logo del cliente"
                                 layout="fill"
                                 objectFit="cover"
+                                onError={() => updateStateByKey('customerLogo', null)}
                             />
                         </div>
                         <div className="flex-grow leading-tight truncate">
