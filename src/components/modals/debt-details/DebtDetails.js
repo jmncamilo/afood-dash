@@ -6,6 +6,12 @@ import { formatClientOrderId } from "@/lib/formatters/formatClientOrderId";
 import { formatCurrency } from "@/lib/formatters/formatCurrency";
 
 export function DebtDetails({ onClose, debtOrdersData }) {
+
+    // Redireccionar a WhatsApp Business para resolver dudas sobre los pedidos
+    const handleDoubtsClick = () => {
+        window.open("https://wa.link/nl54je", "_blank");
+    };
+
     return (
         <div
             className="fixed inset-0 bg-black/40 backdrop-blur-md backdrop-saturate-150 flex items-center justify-center p-0 md:p-6 lg:p-8 z-50 overflow-hidden"
@@ -59,7 +65,7 @@ export function DebtDetails({ onClose, debtOrdersData }) {
 
                     <div className={styles.buttonsFooterSection}>
                         <div className={styles.buttonsContainer}>
-                            <button className={styles.secondButton}>
+                            <button className={styles.secondButton} onClick={handleDoubtsClick}>
                                 <Image
                                     className={styles.secondButtonIcon}
                                     src={"/icons/whatsapp-icon.svg"}
@@ -73,7 +79,7 @@ export function DebtDetails({ onClose, debtOrdersData }) {
                             </button>
                             <button
                                 className={styles.firstButton}
-                                disabled={!debtOrdersData?.length} // TODO: cambiar estilos del botón cuando está deshabilitado
+                                disabled={!debtOrdersData?.length}
                             >
                                 Pagar
                             </button>

@@ -191,6 +191,7 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección política de pago y de entrega */}
+                    {/* TODO: falta construir estos desplegables. Maquetarlo con texto ficti para cuando se tenga la información correcta, simplemente se reemplace */}
                 <section className={styles.sectionPolicies}>
                     Aquí van las políticas de compra y entrega
                 </section>

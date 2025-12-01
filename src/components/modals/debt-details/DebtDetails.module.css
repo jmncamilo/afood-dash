@@ -183,6 +183,13 @@
     color: #eeeeee;
 }
 
+.firstButton:disabled {
+    transform: none;
+    color: #00572D;
+    background-color: #fee045;
+    box-shadow: 0 0 0 2px #fee045, 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
 .secondButton {
     width: auto;
     padding: 0.4rem 1.8rem;

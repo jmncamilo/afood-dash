@@ -44,7 +44,7 @@ export const orderProductMap = [
                     if (!UNITS_AROMATICS_PRODUCTS.includes(product)) return acc;
                     const qtyProduct = calculateTotalQuantityForProduct([data], 'Producto Aromáticas', 'Cantidad g Aromáticas', product);
                     if (isNaN(qtyProduct) || qtyProduct <= 0) return acc;
-                    acc.push(`${qtyProduct}paq ${formatSliceFirstFive(product).toLowerCase()}`);
+                    acc.push(`${qtyProduct}ud ${formatSliceFirstFive(product).toLowerCase()}`);
                     return acc;
                 }, [])
                 .join(', ');
