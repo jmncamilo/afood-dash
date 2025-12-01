@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Loader } from "@/components/common/Loader";
 import styles from "./LandingAfood.module.css";
 import { WhatsAppIcon } from "@/components/common/WhatsAppIcon";
@@ -71,19 +72,17 @@ export default function LandingAfood() {
                             {/* Botones de acción */}
                             <div
                                 className={`flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center ${styles.fadeInElement} ${styles.animateDelay300}`}>
-                                <a
+                                <Link
                                     href="/login"
                                     className="group relative flex items-center justify-between px-6 py-4 bg-[#054c2c] text-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full"
                                 >
-                                    <div
-                                        className="absolute inset-0 w-0 bg-[#00a751] transition-all duration-[250ms] ease-out group-hover:w-full opacity-100"></div>
+                                    <div className="absolute inset-0 w-0 bg-[#00a751] transition-all duration-[250ms] ease-out group-hover:w-full opacity-100"></div>
                                     <div className="relative flex items-center gap-3 z-10">
                                         <LogIn className="w-5 h-5 text-[#fede54]"/>
                                         <span className="font-semibold text-base">Ingresar</span>
                                     </div>
-                                    <ArrowRight
-                                        className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform"/>
-                                </a>
+                                    <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform"/>
+                                </Link>
 
                                 <a
                                     href="https://afood.com.co/"
@@ -95,6 +94,7 @@ export default function LandingAfood() {
                                         <ExternalLink className="w-5 h-5"/>
                                         <span className="font-semibold text-base">Sitio oficial</span>
                                     </div>
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform opacity-50"/>
                                 </a>
                             </div>
                         </section>
@@ -128,19 +128,22 @@ export default function LandingAfood() {
                                         <div className="flex items-center justify-between">
                                             <p className="text-[#fede54] text-sm uppercase tracking-widest font-bold">Conecta</p>
                                             <div className="flex gap-3">
-                                                {[{ Icon: Instagram, href: "#" }, {
-                                                    Icon: Linkedin,
-                                                    href: "#"
-                                                }, { Icon: Facebook, href: "#" }, {
-                                                    Icon: WhatsAppIcon,
-                                                    href: "#"
-                                                }].map((item, index) => (<a
-                                                    key={index}
-                                                    href={item.href}
-                                                    className="bg-white/10 p-2.5 rounded-full text-white hover:bg-[#fede54] hover:text-[#054c2c] transition-all duration-300 hover:scale-110"
-                                                >
-                                                    <item.Icon size={20}/>
-                                                </a>))}
+                                                {[
+                                                    { Icon: Instagram, href: "https://www.instagram.com/afood_co/" },
+                                                    { Icon: Linkedin, href: "https://www.linkedin.com/company/afood-co/" },
+                                                    { Icon: Facebook, href: "https://www.facebook.com/AFOOD.COL/" },
+                                                    { Icon: WhatsAppIcon, href: "https://wa.me/573158882060" }
+                                                ].map((item, index) => (
+                                                    <a
+                                                        key={index}
+                                                        href={item.href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="bg-white/10 p-2.5 rounded-full text-white hover:bg-[#fede54] hover:text-[#054c2c] transition-all duration-300 hover:scale-110"
+                                                    >
+                                                        <item.Icon size={20}/>
+                                                    </a>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
