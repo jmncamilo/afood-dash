@@ -85,6 +85,7 @@ export default function Dashboard() {
 
     // TESTING CJ
     const testConsolePrinting = () => {
+        alert('Beneficios click...');
         console.log('Pedidos', ordersData);
         console.log('Deudas', debtOrdersData);
     }
@@ -168,13 +169,17 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección impacto ambiental */}
-                    {/* TODO: esto puede tener modificaciones finales ya que no es la imagen definitiva, pero es un punto de partida avanzado */}
                 <section className={styles.sectionCardEnvironment}>
                     <div className={styles.bannerCardEnvironment}>
                         <div className={styles.bannerCardEnvironmentContentWrapper}>
-                            <span className="block text-[1.1rem] md:text-lg lg:text-xl font-bold">¡Buen trabajo!</span>
-                            <span className="block text-[0.95rem] md:text-base lg:text-lg font-normal lg:leading-snug">Al comprar productos afood reduces la huella ambiental.</span>
-                            <button className={styles.bannerCardEnvironmentButton} onClick={testConsolePrinting}>Ver más</button>
+                            <span className="block text-[1.1rem] md:text-lg lg:text-xl font-bold">¡Tu impacto!</span>
+                            <span className="block text-[0.95rem] md:text-base lg:text-lg font-normal lg:leading-snug">Conoce el gran cambio que haces en el mundo con afood.</span>
+                            <button
+                                className={styles.bannerCardEnvironmentButton}
+                                onClick={() => router.push('/impacto')}
+                            >
+                                Ver más
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -186,7 +191,7 @@ export default function Dashboard() {
                         <div className={styles.achievementsCardTextContainer}>
                             <span className="block text-[0.7rem] md:text-lg lg:text-xl font-bold">Eres Afoodlover</span>
                             <span className="block text-[0.7rem] md:text-base lg:text-lg font-normal lg:leading-snug">¡Completaste más de XX pedidos!</span>
-                            <span className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors" onClick={() => alert('Beneficios click...')}>Beneficios</span>
+                            <span className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors" onClick={testConsolePrinting}>Beneficios</span>
                         </div>
                     </div>
                 </section>
