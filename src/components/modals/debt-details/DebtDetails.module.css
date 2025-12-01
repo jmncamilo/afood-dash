@@ -207,7 +207,6 @@
 .secondButton:hover {
     background-color: #eeeeee;
     box-shadow: 0 0 0 2px #00572d, 0 4px 8px rgba(0, 0, 0, 0.15);
-    /*transform: none;*/
 }
 
 .secondButton:focus {
