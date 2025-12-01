@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Loader } from "@/components/common/Loader";
+import styles from "./LandingAfood.module.css";
 import {
     Sprout, ArrowRight, Instagram, Linkedin, Facebook, ExternalLink, LogIn, Phone
 } from 'lucide-react';
@@ -23,7 +24,7 @@ const WhatsAppIcon = ({ size = 24, className }) => (<svg
         d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
 </svg>);
 
-const LandingAfood = () => {
+export default function LandingAfood() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -38,27 +39,6 @@ const LandingAfood = () => {
             ? <Loader/>
             : (<div
                 className="min-h-screen bg-[#F0F0F0] font-sans text-[#0f0f0f] overflow-x-hidden selection:bg-[#00a751] selection:text-white">
-                <style>{`
-                    @keyframes fade-in-up {
-                      0% { opacity: 0; transform: translateY(20px); }
-                      100% { opacity: 1; transform: translateY(0); }
-                    }
-                    .animate-delay-100 { animation-delay: 100ms; }
-                    .animate-delay-200 { animation-delay: 200ms; }
-                    .animate-delay-300 { animation-delay: 300ms; }
-                    .animate-delay-400 { animation-delay: 400ms; }
-                    
-                    /* Forma de hoja invertida: Punta TopLeft/BottomRight, Curva TopRight/BottomLeft */
-                    /* Aumentado el radio a 100px para más suavidad */
-                    .leaf-shape-inverted {
-                      border-radius: 0px 100px 0px 100px;
-                    }
-                    
-                    .fade-in-element {
-                      opacity: 0;
-                      animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-                    }
-                  `}</style>
 
                 {/* Contenedor Principal */}
                 <div
@@ -68,13 +48,13 @@ const LandingAfood = () => {
                     <main
                         className="flex flex-col lg:flex-row items-center justify-center lg:items-center gap-10 lg:gap-16 flex-grow py-8 lg:py-4 w-full">
 
-                        {/* Columna Izquierda: Texto y Botones (Ahora Centrado) */}
+                        {/* Columna Izquierda: Texto y Botones */}
                         <section
                             className="flex-1 flex flex-col justify-center items-center text-center space-y-8 z-10 w-full max-w-2xl">
 
                             {/* Logo Centrado */}
                             <div
-                                className={`flex flex-col items-center gap-2 fade-in-element ${isLoading ? 'opacity-100' : ''}`}>
+                                className={`flex flex-col items-center gap-2 ${styles.fadeInElement} ${isLoading ? 'opacity-100' : ''}`}>
                                 <div className="bg-[#054c2c] p-3 rounded-xl text-[#fede54] shadow-lg">
                                     <Sprout size={40} strokeWidth={2}/>
                                 </div>
@@ -82,11 +62,11 @@ const LandingAfood = () => {
                             </div>
 
                             <div className="space-y-6">
-                                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0f0f0f] fade-in-element animate-delay-100`}>
+                                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0f0f0f] ${styles.fadeInElement} ${styles.animateDelay100}`}>
                                     Bienvenido al panel <br/> de control <span className="text-[#00a751]">afood</span>
                                 </h1>
 
-                                <div className={`flex flex-col items-center gap-3 fade-in-element animate-delay-200`}>
+                                <div className={`flex flex-col items-center gap-3 ${styles.fadeInElement} ${styles.animateDelay200}`}>
                                     <h2 className="text-xl md:text-2xl font-bold text-[#054c2c]">
                                         Sembramos cambio cosechamos futuro
                                     </h2>
@@ -100,7 +80,7 @@ const LandingAfood = () => {
 
                             {/* Botones de Acción */}
                             <div
-                                className={`flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center fade-in-element animate-delay-300`}>
+                                className={`flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center ${styles.fadeInElement} ${styles.animateDelay300}`}>
                                 <a
                                     href="/login"
                                     className="group relative flex items-center justify-between px-6 py-4 bg-[#054c2c] text-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full"
@@ -131,11 +111,11 @@ const LandingAfood = () => {
 
                         {/* Columna Derecha: Bloque Visual Leaf Shape Invertido */}
                         <section
-                            className="flex-1 w-full flex flex-col justify-center items-center fade-in-element animate-delay-400">
+                            className={`flex-1 w-full flex flex-col justify-center items-center ${styles.fadeInElement} ${styles.animateDelay400}`}>
 
                             {/* Contenedor Leaf Shape Invertido */}
                             <div
-                                className="leaf-shape-inverted bg-[#054c2c] p-8 md:p-12 w-full max-w-md shadow-2xl transform transition-transform hover:scale-[1.02] duration-500 group cursor-default relative overflow-hidden">
+                                className={`${styles.leafShapeInverted} bg-[#054c2c] p-8 md:p-12 w-full max-w-md shadow-2xl transform transition-transform hover:scale-[1.02] duration-500 group cursor-default relative overflow-hidden`}>
 
                                 <div className="flex flex-col h-full justify-between min-h-[280px] relative z-10">
 
@@ -190,7 +170,7 @@ const LandingAfood = () => {
 
                     {/* Footer */}
                     <footer
-                        className={`flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 border-t border-[#054c2c]/10 pt-6 mt-4 gap-4 fade-in-element animate-delay-400 w-full`}>
+                        className={`flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 border-t border-[#054c2c]/10 pt-6 mt-4 gap-4 ${styles.fadeInElement} ${styles.animateDelay400} w-full`}>
                         <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#00a751] animate-pulse"></span>
                             <p>Cultivamos cerca de ti, sin costos ocultos ni intermediarios.</p>
@@ -204,6 +184,4 @@ const LandingAfood = () => {
                 </div>
             </div>)
     );
-};
-
-export default LandingAfood;
+}

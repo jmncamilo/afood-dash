@@ -1,0 +1,35 @@
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animateDelay100 {
+    animation-delay: 100ms;
+}
+
+.animateDelay200 {
+    animation-delay: 200ms;
+}
+
+.animateDelay300 {
+    animation-delay: 300ms;
+}
+
+.animateDelay400 {
+    animation-delay: 400ms;
+}
+
+.leafShapeInverted {
+    border-radius: 0px 100px 0px 100px;
+}
+
+.fadeInElement {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
