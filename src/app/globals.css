@@ -23,6 +23,11 @@ body {
     font-family: var(--font-poppins), Arial, sans-serif;
 }
 
+::selection {
+    background-color: #133e28;
+    color: white;
+}
+
 h1 {
     font-weight: bold;
     font-size: 1.7rem;

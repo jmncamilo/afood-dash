@@ -23,21 +23,21 @@ export default function LandingAfood() {
     return (isLoading === true
             ? <Loader/>
             : (<div
-                className="min-h-screen bg-[#F0F0F0] font-sans text-[#0f0f0f] overflow-x-hidden selection:bg-[#00a751] selection:text-white">
+                className="min-h-screen bg-[#F0F0F0] text-[#0f0f0f] overflow-x-hidden">
 
-                {/* Contenedor Principal */}
+                {/* Contenedor principal */}
                 <div
-                    className="lg:h-screen w-full flex flex-col p-6 lg:p-12 relative max-w-7xl mx-auto justify-between">
+                    className="lg:h-screen w-full flex flex-col p-6 lg:p-10 relative max-w-7xl mx-auto justify-between">
 
-                    {/* Cuerpo Principal */}
+                    {/* Contenido principal */}
                     <main
-                        className="flex flex-col lg:flex-row items-center justify-center lg:items-center gap-10 lg:gap-16 flex-grow py-8 lg:py-4 w-full">
+                        className="flex flex-col lg:flex-row items-center justify-center lg:items-center gap-10 lg:gap-16 flex-grow py-8 lg:py-2 w-full">
 
-                        {/* Columna Izquierda: Texto y Botones */}
+                        {/* Columna de la izquierda: texto y botones */}
                         <section
                             className="flex-1 flex flex-col justify-center items-center text-center space-y-8 z-10 w-full max-w-2xl">
 
-                            {/* Logo Centrado */}
+                            {/* Logo centrado */}
                             <div
                                 className={`flex flex-col items-center gap-2 ${styles.fadeInElement} ${isLoading ? 'opacity-100' : ''}`}>
                                 <div className="bg-[#054c2c] p-3 rounded-xl text-[#fede54] shadow-lg">
@@ -48,12 +48,16 @@ export default function LandingAfood() {
 
                             <div className="space-y-6">
                                 <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0f0f0f] ${styles.fadeInElement} ${styles.animateDelay100}`}>
-                                    Bienvenido al panel <br/> de control <span className="text-[#00a751]">afood</span>
+                                    Bienvenida/o a tu panel <br/> de control <span className="text-[#00a751]">afood</span>
                                 </h1>
 
                                 <div className={`flex flex-col items-center gap-3 ${styles.fadeInElement} ${styles.animateDelay200}`}>
                                     <h2 className="text-xl md:text-2xl font-bold text-[#054c2c]">
-                                        Sembramos cambio cosechamos futuro
+                                        Sembramos cambio cosechamos{' '}
+                                        <span
+                                            className={`${styles.leafShapeInverted} bg-[#054c2c] text-[#fede54] px-6 py-0.5 inline-block`}>
+                                            futuro
+                                        </span>
                                     </h2>
                                     <div className="h-1 w-20 bg-[#fede54] rounded-full"></div>
                                     <p className="text-base md:text-lg text-gray-600 max-w-lg leading-relaxed">
@@ -61,9 +65,10 @@ export default function LandingAfood() {
                                         para garantizar alimentos frescos, disponibles todo el año y a precios estables.
                                     </p>
                                 </div>
+
                             </div>
 
-                            {/* Botones de Acción */}
+                            {/* Botones de acción */}
                             <div
                                 className={`flex flex-col sm:flex-row gap-4 w-full max-w-md justify-center ${styles.fadeInElement} ${styles.animateDelay300}`}>
                                 <a
@@ -94,17 +99,17 @@ export default function LandingAfood() {
                             </div>
                         </section>
 
-                        {/* Columna Derecha: Bloque Visual Leaf Shape Invertido */}
+                        {/* Columna de la derecha: bloque visual Leaf Shape */}
                         <section
                             className={`flex-1 w-full flex flex-col justify-center items-center ${styles.fadeInElement} ${styles.animateDelay400}`}>
 
-                            {/* Contenedor Leaf Shape Invertido */}
+                            {/* Contenedor Leaf Shape */}
                             <div
-                                className={`${styles.leafShapeInverted} bg-[#054c2c] p-8 md:p-12 w-full max-w-md shadow-2xl transform transition-transform hover:scale-[1.02] duration-500 group cursor-default relative overflow-hidden`}>
+                                className={`${styles.leafShapeInverted} bg-[#054c2c] p-10 md:p-12 w-full max-w-md shadow-2xl transform transition-transform hover:scale-[1.02] duration-500 group cursor-default relative overflow-hidden`}>
 
                                 <div className="flex flex-col h-full justify-between min-h-[280px] relative z-10">
 
-                                    {/* Texto Nuevo */}
+                                    {/* Texto párrafo */}
                                     <div className="space-y-6 flex-grow flex flex-col justify-center">
                                         <div
                                             className="w-12 h-12 bg-[#fede54] rounded-full flex items-center justify-center text-[#054c2c] mb-2">
@@ -118,7 +123,7 @@ export default function LandingAfood() {
                                             className="w-16 h-1 bg-[#fede54] rounded-full group-hover:w-32 transition-all duration-500"></div>
                                     </div>
 
-                                    {/* Redes Sociales */}
+                                    {/* Redes sociales */}
                                     <div className="mt-8 pt-6 border-t border-white/10">
                                         <div className="flex items-center justify-between">
                                             <p className="text-[#fede54] text-sm uppercase tracking-widest font-bold">Conecta</p>
@@ -156,9 +161,10 @@ export default function LandingAfood() {
                     {/* Footer */}
                     <footer
                         className={`flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 border-t border-[#054c2c]/10 pt-6 mt-4 gap-4 ${styles.fadeInElement} ${styles.animateDelay400} w-full`}>
-                        <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-[#00a751] animate-pulse"></span>
-                            <p>Cultivamos cerca de ti, sin costos ocultos ni intermediarios.</p>
+
+                        <div className="flex items-center justify-center gap-2 text-center md:justify-start md:text-left">
+                            <span className="hidden md:inline-block w-2 h-2 rounded-full bg-[#00a751] animate-pulse"></span>
+                            <p className="font-semibold md:font-normal">Cultivamos cerca de ti, sin costos ocultos ni intermediarios.</p>
                         </div>
 
                         <div className="text-center md:text-right space-y-1">
