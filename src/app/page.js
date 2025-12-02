@@ -55,7 +55,7 @@ export default function LandingAfood() {
 
                             <div className="space-y-6">
                                 <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-[#0f0f0f] ${styles.fadeInElement} ${styles.animateDelay100}`}>
-                                    Bienvenida/o a tu panel <br/> de control <span className="text-[#00a751]">afood</span>
+                                    Bienvenida/o a tu espacio <br/> de frescura <span className="text-[#00a751]">afood</span>
                                 </h1>
 
                                 <div className={`flex flex-col items-center gap-3 ${styles.fadeInElement} ${styles.animateDelay200}`}>
