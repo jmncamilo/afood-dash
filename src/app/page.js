@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Loader } from "@/components/common/Loader";
 import styles from "./LandingAfood.module.css";
 import { WhatsAppIcon } from "@/components/common/WhatsAppIcon";
 import {
-    Sprout, ArrowRight, Instagram, Linkedin, Facebook, ExternalLink, LogIn, Phone
+    Sprout, ArrowRight, Instagram, Linkedin, Facebook, ExternalLink, LogIn
 } from 'lucide-react';
 
 
@@ -38,13 +39,18 @@ export default function LandingAfood() {
                         <section
                             className="flex-1 flex flex-col justify-center items-center text-center space-y-8 z-10 w-full max-w-2xl">
 
-                            {/* Logo centrado */}
-                            <div
-                                className={`flex flex-col items-center gap-2 ${styles.fadeInElement} ${isLoading ? 'opacity-100' : ''}`}>
-                                <div className="bg-[#054c2c] p-3 rounded-xl text-[#fede54] shadow-lg">
-                                    <Sprout size={40} strokeWidth={2}/>
+                            {/* Logo de afood centrado */}
+                            <div className={`${styles.fadeInElement} ${isLoading ? 'opacity-100' : ''}`}>
+                                <div className="bg-[#f4f4f4] p-3 rounded-xl shadow-md shadow-black/45 inline-block">
+                                    <Image
+                                        src="/branding/logo-afood.svg"
+                                        alt="Logo afood"
+                                        width={140}
+                                        height={55}
+                                        priority
+                                        className="object-contain"
+                                    />
                                 </div>
-                                <span className="text-2xl font-bold tracking-tight text-[#054c2c]">afood</span>
                             </div>
 
                             <div className="space-y-6">
