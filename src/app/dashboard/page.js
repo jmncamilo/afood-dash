@@ -19,7 +19,7 @@ import { formatClientName } from "@/lib/formatters/formatClientName";
 import { formatCurrency } from "@/lib/formatters/formatCurrency";
 import { formatSliceNit } from "@/lib/formatters/formatSliceNit";
 import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateIntegerColumnTotal";
-import { executeOrderProductHandlers } from "@/components/modals/debt-details/executeOrderProductHandlers";
+
 
 export default function Dashboard() {
     // Hook useRouter para redireccionamiento reactivo
