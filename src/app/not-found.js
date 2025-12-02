@@ -119,7 +119,7 @@ export default function NotFound() {
                 {/* Redes sociales */}
                 <div className="flex items-center gap-2 sm:gap-3">
                     <a
-                        href="https://instagram.com/TU_USUARIO_INSTAGRAM"
+                        href="https://www.instagram.com/afood_co/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#054c2c] p-2 sm:p-2.5 rounded-full hover:bg-[#fede54] transition-colors group"
@@ -128,7 +128,7 @@ export default function NotFound() {
                         <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-[#fede54] group-hover:text-[#054c2c] transition-colors"/>
                     </a>
                     <a
-                        href="https://linkedin.com/company/TU_EMPRESA_LINKEDIN"
+                        href="https://co.linkedin.com/company/afood-co"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#054c2c] p-2 sm:p-2.5 rounded-full hover:bg-[#fede54] transition-colors group"
@@ -137,7 +137,7 @@ export default function NotFound() {
                         <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-[#fede54] group-hover:text-[#054c2c] transition-colors"/>
                     </a>
                     <a
-                        href="https://facebook.com/TU_PAGINA_FACEBOOK"
+                        href="https://www.facebook.com/AFOOD.COL/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#054c2c] p-2 sm:p-2.5 rounded-full hover:bg-[#fede54] transition-colors group"
