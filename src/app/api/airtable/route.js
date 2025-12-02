@@ -11,9 +11,12 @@ export async function GET(req) {
     const base = new Airtable({ apiKey: process.env.AIRTABLE_TOKEN }).base(process.env.AIRTABLE_BASE_ID);
 
     try {
-        // Crea una fórmula de Airtable que busca si el nombre del cliente está contenido en el campo "Id Cumplimiento"
-        const formula = `FIND('${customerName.toUpperCase()}', {Id Cumplimiento})`;
-        // Consulta los registros filtrando por cliente y ordenando por "Id Cumplimiento"
+        // Crea una fórmula de Airtable que busca si el nombre del cliente está contenido en el campo "Id Cumplimiento" y si el pedido ha sido entregado
+        const formula = `AND(
+            FIND('${customerName.toUpperCase()}', {Id Cumplimiento}),
+            {Pedido Entregado} = 'Sí'
+        )`;
+        // Consulta los registros filtrando estas columnas por cliente y ordenando ascendentemente por "Id Cumplimiento"
         const records = await base(process.env.AIRTABLE_BASE_TABLE_ID).select({
             fields: [
                 'Id Cumplimiento',
