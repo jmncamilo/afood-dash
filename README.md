@@ -1,5 +1,9 @@
 # 🧪 Huerto en progreso...
 
+![Tu huerto digital](src/assets/readme/banner-huerto-afood.png)
+
+---
+
 ¡Hola afoodlover!
 En **afood** seguimos cultivando mejoras.
 Estamos trabajando en tu **huerto digital** para que puedas visualizar el historial de tus pedidos y tu estado de cuenta de manera simple y transparente.
