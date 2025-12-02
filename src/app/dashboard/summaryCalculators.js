@@ -16,7 +16,7 @@ export const dropdownActions = {
     'Todos': (data, setter) => {
         const orders = countOrdersWithProduct(data, 'Pedido Entregado', 'Sí') ?? 0;
         const units =
-            (countOrdersWithProduct(data, 'Producto Aromáticas', 'Cilantrón')
+            (calculateTotalQuantityForProduct(data, 'Producto Aromáticas', 'Cantidad g Aromáticas', 'Cilantrón')
             + calculateNumericColumnTotal(data, 'Total Lechugas Entregadas')) ?? 0;
         const grams = calculateTotalQuantityForAromatics(data) ?? 0;
         const dataToSet = { orders, units, grams };
