@@ -8,7 +8,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-    title: "Dashboard afood",
+    title: "Huerto afood",
     description: "Created by Camilo Jiménez",
 };
 
