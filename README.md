@@ -1,18 +1,19 @@
-# 🚧 Dashboard en progreso...
+# 🧪 Huerto en progreso...
 
-¡Hola!
+¡Hola afoodlover!
 En **afood** seguimos cultivando mejoras.
-Estamos trabajando en un **nuevo panel de control** para que puedas seguir el historial de tus pedidos de forma fácil, clara y directa.
+Estamos trabajando en tu **huerto digital** para que puedas visualizar el historial de tus pedidos y tu estado de cuenta de manera simple y transparente.
 
-Tu experiencia importa, pronto podrás acceder a:
+Tu experiencia importa. Muy pronto podrás acceder a:
 
-- 📦 **Pedidos realizados**
-- 🧺 **Canastas compradas**
-- 🌿 **Lechugas adquiridas**
-- 💰 **Monto total pagado**
-- 💸 **Monto por pagar (deuda actual)**
-- 📊 **Gráfico con historial de pagos, canastas y deudas**
+- 💳 **Estado de cuenta**
+- 📑 **Desglose de pagos pendientes**
+- 🧺 **Resumen de tus pedidos**
+- 💰 **Tu inversión en frescura**
+- 🌱 **Huella de carbono que has evitado**
+- 🎁 **Recompensas por ser afoodlover**
+- ⚖️ **Políticas afood**
 
-🚀 **¡Estamos a punto de despegar!**
+🚀 **¡Estamos a punto de cosechar!**
 
-— El equipo de **afood** 🍃
+— El equipo de **afood** ☘️
