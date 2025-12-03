@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export function PoliciesDropdown({ title, text, list }) {
     const [isExpanded, setIsExpanded] = useState(false);
-
+    // TODO: ubicar las props correctamente e iterar con map (array de objetos con información de las políticas) en caso de que se requiera una lista ordenada
     return (
             <div className={styles.mainWrapper}>
                 <span className={styles.titleWrapper}>

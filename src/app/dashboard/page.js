@@ -185,22 +185,24 @@ export default function Dashboard() {
                     </div>
                 </section>
 
-                {/* Sección badges */}
-                    {/* TODO: será render dinámico, sólo cuando el cliente sobrepase X cantidad de pedidos. Puede cambiar el diseño, pero más que nada el bg de la card */}
-                <section className={styles.sectionAchievements}>
-                    <div className={styles.achievementsCardWrapper}>
-                        <div className={styles.achievementsCardTextContainer}>
-                            <span className="block text-[0.7rem] md:text-lg lg:text-xl font-bold">Eres Afoodlover</span>
-                            <span className="block text-[0.7rem] md:text-base lg:text-lg font-normal lg:leading-snug">¡Completaste más de XX pedidos!</span>
-                            <span className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors" onClick={testConsolePrinting}>Beneficios</span>
+                {/* Sección logros afoodlover */}
+                    {/* TODO: ajustar la cantidad de pedidos para que un cliente sea considerado afoodlover */}
+                {ordersData?.data?.length > 15 && (
+                    <section className={styles.sectionAchievements}>
+                        <div className={styles.achievementsCardWrapper}>
+                            <div className={styles.achievementsCardTextContainer}>
+                                <span className="block text-[0.7rem] md:text-lg lg:text-xl font-bold">Eres Afoodlover</span>
+                                <span className="block text-[0.7rem] md:text-base lg:text-lg font-normal lg:leading-snug">¡Completaste más de 15 pedidos!</span>
+                                <span className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors" onClick={testConsolePrinting}>Beneficios</span>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                )}
 
                 {/* Sección política de pago y de entrega */}
                 <section className={styles.sectionPolicies}>
-                        <PoliciesDropdown />
-                        <PoliciesDropdown />
+                    <PoliciesDropdown />
+                    <PoliciesDropdown />
                 </section>
             </main>
 
