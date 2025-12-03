@@ -19,6 +19,7 @@ import { formatClientName } from "@/lib/formatters/formatClientName";
 import { formatCurrency } from "@/lib/formatters/formatCurrency";
 import { formatSliceNit } from "@/lib/formatters/formatSliceNit";
 import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateIntegerColumnTotal";
+import { PoliciesDropdown } from "@/components/policies-dropdown/PoliciesDropdown";
 
 
 export default function Dashboard() {
@@ -197,9 +198,9 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección política de pago y de entrega */}
-                    {/* TODO: falta construir estos desplegables. Maquetarlo con texto ficti para cuando se tenga la información correcta, simplemente se reemplace */}
                 <section className={styles.sectionPolicies}>
-                    Aquí van las políticas de compra y entrega
+                        <PoliciesDropdown />
+                        <PoliciesDropdown />
                 </section>
             </main>
 

@@ -1,0 +1,70 @@
+.mainWrapper {
+    background-color: #ececec;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: inherit;
+    padding: 1.5rem 1.2rem 3rem;
+    gap: 0.6rem;
+    font-size: 1rem;
+    position: relative;
+}
+
+.titleWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.titleStyle {
+    color: #2d7351;
+    font-weight: 600;
+}
+
+.textWrapper {
+    width: 100%;
+    transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
+    overflow: hidden;
+    max-height: 2.65rem;
+    opacity: 0.73;
+    color: #262b2d;
+    font-weight: 400;
+}
+
+.textWrapperExpanded {
+    max-height: 2000px;
+    opacity: 1;
+}
+
+.textStyle {
+    text-align: justify;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*padding-bottom: 0.7rem;*/
+}
+
+.iconWrapper {
+    border-radius: 50%;
+    /*width: 45px;*/
+    width: 3rem;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #57b157;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.iconWrapper:hover {
+    background-color: #054c2c;
+}
