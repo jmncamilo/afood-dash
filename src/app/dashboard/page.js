@@ -99,7 +99,7 @@ export default function Dashboard() {
 
                 {/* Encabezado del cliente */}
                 <header className={styles.customerHeader}>
-                    <div className="flex items-center py-2.5 px-4 w-full bg-white rounded-2xl shadow-md shadow-gray-700/60 font-sans">
+                    <div className="flex items-center py-2.5 px-4 w-full bg-white rounded-2xl shadow-md shadow-gray-700/60 font-[family-name:var(--font-bricolage)]">
                         <div className="relative w-12 h-12 rounded-full bg-gray-200 mr-4 flex items-center justify-center overflow-hidden">
                             <Image
                                 className={styles.customerLogo}
