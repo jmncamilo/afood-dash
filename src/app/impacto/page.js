@@ -35,12 +35,48 @@ export default function EnvironmentalImpactMetrics() {
                         <EnvironmentalCard value={666} srcImage={'/misc/nitrogen-afood.svg'} mainLabel={'Nitrógeno'} highlightLabel={'evitado'} title={'kg de nitrógeno que NO se desperdiciaron'}/>
                     </section>
 
-                    {/* Sección de contacto */}
-                    <section className="flex flex-col items-center justify-center">
-                        <p className="text-gray-500 text-sm md:text-base mt-8 text-center">
-                            ¿Necesitas ayuda? 💬 Contáctanos para más información.
+                    {/* Sección que hace de footer para poner links de acceso */}
+                    <section className="flex flex-col items-center justify-center mt-12 mb-8 px-4">
+                        <h2 className="text-2xl md:text-3xl font-bold text-[#135A36] mb-4 text-center">
+                            ¿Quieres saber más? 🌱
+                        </h2>
+                        <p className="text-gray-600 text-base md:text-lg mb-8 text-center max-w-2xl">
+                            Descubre cómo nació la visión de integrar tecnologías y saberes ancestrales en nuestras granjas...
                         </p>
+
+                        <div className="flex flex-wrap gap-4 justify-center items-center">
+                            {/* Sitio web */}
+                            <a
+                                href="https://afood.com.co/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 bg-[#00A751] hover:bg-[#135A36] text-white px-6 py-3 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+                            >
+                                🌐 Visita nuestro sitio web
+                            </a>
+
+                            {/* Instagram */}
+                            <a
+                                href="https://www.instagram.com/afood_co/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
+                            >
+                                📸 Síguenos en Instagram
+                            </a>
+
+                            {/* WhatsApp */}
+                            <a
+                                href="https://wa.me/573125185174"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+                            >
+                                💬 Escríbenos por WhatsApp
+                            </a>
+                        </div>
                     </section>
+
                 </main>
             </div>
         </div>
