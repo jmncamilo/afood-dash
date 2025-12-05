@@ -72,7 +72,7 @@ export default function EnvironmentalImpactMetrics() {
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-6 py-3 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
                             >
-                                💬 Escríbenos por WhatsApp
+                                💬 Escríbenos a WhatsApp
                             </a>
                         </div>
                     </section>
