@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { EnvironmentalCard } from "@/app/impacto/EnvironmentalCard";
 
 export default function EnvironmentalImpactMetrics() {
     return (
@@ -10,7 +11,7 @@ export default function EnvironmentalImpactMetrics() {
                         src="/banners/banner-impact.svg"
                         alt="Impacto ambiental"
                         fill
-                        className="object-cover"
+                        className="object-cover lg:object-fill"
                         priority
                     />
                     <div className="absolute inset-0"></div>
@@ -28,66 +29,10 @@ export default function EnvironmentalImpactMetrics() {
 
                     {/* Section métricas ambientales */}
                     <section className="grid grid-cols-2 grid-rows-2 gap-7 md:gap-9 w-fit mx-auto">
-                        {/* TODO: verificar en diferentes pantallas, corregir si es necesario, agregar últimos detalles y modularizar en un componente funcional */}
-                        <div className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis">
-                            <h2 className="text-2xl md:text-3xl font-semibold text-[#57B257] font-[family-name:var(--font-bricolage)]">77366</h2>
-                            <div className="relative w-full h-24 md:h-28 flex-shrink-0">
-                                <Image
-                                    src="/misc/water-afood.svg"
-                                    alt="Agua ahorrada"
-                                    fill
-                                    className="object-contain object-center"
-                                />
-                            </div>
-                            <p className="text-md md:text-base text-[#00572D] font-[family-name:var(--font-bricolage)] font-semibold">
-                                Agua <span className="text-[#57B257]">ahorrada</span>
-                            </p>
-                        </div>
-
-                        <div className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis">
-                            <h2 className="text-2xl md:text-3xl font-semibold text-[#57B257] font-[family-name:var(--font-bricolage)]">77366</h2>
-                            <div className="relative w-full h-24 md:h-28 flex-shrink-0">
-                                <Image
-                                    src="/misc/water-afood.svg"
-                                    alt="Agua ahorrada"
-                                    fill
-                                    className="object-contain object-center"
-                                />
-                            </div>
-                            <p className="text-md md:text-base text-[#00572D] font-[family-name:var(--font-bricolage)] font-semibold">
-                                Agua <span className="text-[#57B257]">ahorrada</span>
-                            </p>
-                        </div>
-
-                        <div className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis">
-                            <h2 className="text-2xl md:text-3xl font-semibold text-[#57B257] font-[family-name:var(--font-bricolage)]">77366</h2>
-                            <div className="relative w-full h-24 md:h-28 flex-shrink-0">
-                                <Image
-                                    src="/misc/water-afood.svg"
-                                    alt="Agua ahorrada"
-                                    fill
-                                    className="object-contain object-center"
-                                />
-                            </div>
-                            <p className="text-md md:text-base text-[#00572D] font-[family-name:var(--font-bricolage)] font-semibold">
-                                Agua <span className="text-[#57B257]">ahorrada</span>
-                            </p>
-                        </div>
-
-                        <div className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis">
-                            <h2 className="text-2xl md:text-3xl font-semibold text-[#57B257] font-[family-name:var(--font-bricolage)]">77366</h2>
-                            <div className="relative w-full h-24 md:h-28 flex-shrink-0">
-                                <Image
-                                    src="/misc/water-afood.svg"
-                                    alt="Agua ahorrada"
-                                    fill
-                                    className="object-contain object-center"
-                                />
-                            </div>
-                            <p className="text-md md:text-base text-[#00572D] font-[family-name:var(--font-bricolage)] font-semibold">
-                                Agua <span className="text-[#57B257]">ahorrada</span>
-                            </p>
-                        </div>
+                        <EnvironmentalCard value={999999} srcImage={'/misc/water-afood.svg'} mainLabel={'Agua'} highlightLabel={'ahorrada'} title={'m2 de agua que NO usamos'}/>
+                        <EnvironmentalCard value={88888} srcImage={'/misc/carbon-afood.svg'} mainLabel={'Emisiones'} highlightLabel={'de Co2'}/>
+                        <EnvironmentalCard value={7777} srcImage={'/misc/fish-afood.svg'} mainLabel={'Peces'} highlightLabel={'producidos'}/>
+                        <EnvironmentalCard value={666} srcImage={'/misc/nitrogen-afood.svg'} mainLabel={'Nitrógeno'} highlightLabel={'evitado'} title={'kg de nitrógeno que NO se desperdiciaron'}/>
                     </section>
 
                     {/* Sección de contacto */}

@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export function EnvironmentalCard({ value = 0, srcImage = '/misc/water-afood.svg', mainLabel = 'Agua', highlightLabel = 'ahorrada' }) {
+export function EnvironmentalCard({ value = 0, srcImage = '/misc/water-afood.svg', mainLabel = 'Agua', highlightLabel = 'ahorrada', title = '' }) {
     return (
-        <div className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis">
+        <div title={title} className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis hover:bg-[#f7f7f7] transition-transform duration-200 ease-out hover:-translate-y-2">
             <h2 className="text-2xl md:text-3xl font-semibold text-[#57B257] font-[family-name:var(--font-bricolage)]">{value}</h2>
             <div className="relative w-full h-24 md:h-28 flex-shrink-0">
                 <Image
