@@ -1,5 +1,5 @@
 const initialValues = {
-    customerName: 'Afo Acuaponía',
+    customerName: 'Afood Co',
     waterValue: 999999,
     carbonValue: 999999,
     fishValue: 999999,
