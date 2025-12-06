@@ -2,7 +2,7 @@ import styles from "./PoliciesDropdown.module.css";
 import { EyeIcon, EyeClosed } from "lucide-react";
 import { useState } from "react";
 
-export function PoliciesDropdown({ title, text, list = [] }) {
+export function PoliciesDropdown({ title, text, list = null }) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
@@ -15,24 +15,9 @@ export function PoliciesDropdown({ title, text, list = [] }) {
                     {text}
                 </p>
                 <ol className="list-decimal pl-5 pt-3 marker:font-[500] marker:text-[#2d7351]">
-                    <li>To post a song go to My Songs section and click a Post button, located on the bottom of your
-                        screen.
-                    </li>
-                    <li>To post a song go to My Songs section and click a Post button, located on the bottom of your
-                        screen.
-                    </li>
-                    <li>To post a song go to My Songs section and click a Post button, located on the bottom of your
-                        screen.
-                    </li>
-                    <li>To post a song go to My Songs section and click a Post button, located on the bottom of your
-                        screen.
-                    </li>
-                    <li>To post a song go to My Songs section and click a Post button, located on the bottom of your
-                        screen.
-                    </li>
-                    <li>To post a song go to My Songs section and click a Post button, located on the bottom of your
-                        screen.
-                    </li>
+                    {!!list?.length && (
+                        list.map(item => <li className={'py-1'} key={item.id}>{item.content}</li>)
+                    )}
                 </ol>
             </div>
             <div className={styles.iconWrapper} onClick={() => setIsExpanded(prev => !prev)}>

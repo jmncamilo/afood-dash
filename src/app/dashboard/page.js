@@ -20,6 +20,7 @@ import { formatCurrency } from "@/lib/formatters/formatCurrency";
 import { formatSliceNit } from "@/lib/formatters/formatSliceNit";
 import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateIntegerColumnTotal";
 import { PoliciesDropdown } from "@/components/policies-dropdown/PoliciesDropdown";
+import { termsConditionsValues } from "@/app/dashboard/TermsConditionsValues";
 
 
 export default function Dashboard() {
@@ -201,8 +202,10 @@ export default function Dashboard() {
 
                 {/* Sección política de pago y de entrega */}
                 <section className={styles.sectionPolicies}>
-                    <PoliciesDropdown title={''} text={''} list={[]} />
-                    <PoliciesDropdown />
+                    <PoliciesDropdown
+                        title={termsConditionsValues[0].title}
+                        text={termsConditionsValues[0].text}
+                        list={termsConditionsValues[0].list} />
                 </section>
             </main>
 
