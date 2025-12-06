@@ -2,7 +2,7 @@
  * Devuelve las primeras 3 palabras de una cadena sin alterar su formato.
  * Si la cadena tiene menos de 3 palabras, devuelve la original.
  */
-function firstThreeWords(input) {
+export function firstThreeWords(input) {
     if (typeof input !== 'string') return '';
 
     // Quita los espacios extra alrededor y divide por uno o más espacios

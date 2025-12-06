@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { EnvironmentalCard } from "@/app/impacto/EnvironmentalCard";
 import { useState, useEffect } from "react";
-import { getSession } from "@/lib/utils/authSession";
+import { clearSession, getSession } from "@/lib/utils/authSession";
 import { useRouter } from "next/navigation";
 import { useObjectState } from "@/hooks/useObjectState";
 import initialValues from "@/app/impacto/initialValues";
 import { formatDashedString } from "@/lib/formatters/formatDashedString";
+import { firstThreeWords } from "@/lib/utils/firstThreeWords";
+import { formatCapitalize } from "@/lib/formatters/formatCapitalize";
+import { Loader } from "@/components/common/Loader";
 
 export default function EnvironmentalImpactMetrics() {
     const router = useRouter();
@@ -26,12 +31,20 @@ export default function EnvironmentalImpactMetrics() {
                     router.replace('/');
                     return;
                 }
-                // Obtiene el nombre del cliente y lo formatea capitalizando
-                const customerName = session.clientNameQuery; // Falta method para formatear correctamente según lo que necesita esta vista
+                // Formatea el nombre del cliente: separa por guiones, capitaliza y muestra solo las primeras 3 palabras con espacios (si aplica)
+                const customerName = firstThreeWords(formatCapitalize(formatDashedString(session.clientNameQuery)));
+                updateStateByKey('customerName', customerName); // Actualiza el estado que controla los datos de la vista
 
+                // TODO: obtener los datos requeridos desde airtable según el requerimiento de la tabla a consultar que aún se esta determinando
+
+                // UX
+                setIsLoading(false);
 
             } catch (err) {
-                console.error(err);
+                console.error('Error cargando la vista:', err);
+                alert('Error en el servidor, vuelve a ingresar...');
+                clearSession();
+                router.replace('/');
             }
 
         };
@@ -56,7 +69,7 @@ export default function EnvironmentalImpactMetrics() {
 
                 {/* Título superpuesto */}
                 <h1 className="absolute inset-0 pt-16 md:pt-20 lg:pt-24 text-3xl md:text-4xl lg:text-5xl !font-medium text-[#00A751] text-center px-11 font-[family-name:var(--font-bricolage)]">
-                    {`La Bendita Parrilla y afood`} <span className="text-[#135A36] font-extrabold">creamos un futuro</span> sostenible
+                    {`${viewData.customerName ?? 'Afood Co'} y afood`} <span className="text-[#135A36] font-extrabold">creamos un futuro</span> sostenible
                 </h1>
             </header>
 
@@ -116,6 +129,9 @@ export default function EnvironmentalImpactMetrics() {
 
                 </main>
             </div>
+
+            {/* Componente loader */}
+            {isLoading && <Loader/>}
         </div>
     );
 }

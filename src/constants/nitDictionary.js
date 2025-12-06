@@ -4,7 +4,7 @@ export const CLIENT_NIT_MAP = {
     '999888777': 'lalala-cocktails',
     '999999999': 'la-bendita-parrilla',
     '888888888': 'peru-sazon-gourmet',
-    '777777777': 'love-restaurant',
+    '777777777': 'love-restaurante',
     // TODO: agregar los clientes restantes de afood...
 };
 
