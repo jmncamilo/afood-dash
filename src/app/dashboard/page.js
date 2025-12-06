@@ -126,7 +126,7 @@ export default function Dashboard() {
                     </div>
                 </header>
 
-                {/* Sección afood card (total pagado - deuda) */}
+                {/* Sección afood card (total pagado y deuda) */}
                 <section className={styles.sectionCreditCard}>
                     <div className={styles.cardBase}>
                         <div className={styles.cardFirstColumn}>

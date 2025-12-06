@@ -11,7 +11,7 @@ export function OrderRow({ qtyItems, products, total, date }) {
                 <span className={styles.iconFigureOrder}></span>
             </div>
             <div className={styles.textOrderRowContainer}>
-                <span className={styles.textOrderFirstLine}>{qtyItems} ítem(s)</span>
+                <span className={styles.textOrderFirstLine}>{qtyItems} compra(s)</span>
                 <span className={styles.textOrderSecondLine}>{products}</span>
             </div>
             <div className={styles.totalDateOrderRowContainer}>

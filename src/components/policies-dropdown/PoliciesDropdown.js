@@ -8,7 +8,7 @@ export function PoliciesDropdown({ title, text, list }) {
     return (
             <div className={styles.mainWrapper}>
                 <span className={styles.titleWrapper}>
-                    <h3 className={styles.titleStyle}>Términos de pago</h3>
+                    <h3 className={styles.titleStyle}>Términos de xxxxx</h3>
                 </span>
                 <div className={`${styles.textWrapper} ${isExpanded ? styles.textWrapperExpanded : ''}`}>
                     <p className={styles.textStyle}>

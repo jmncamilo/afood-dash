@@ -1,5 +1,5 @@
 /*
- * Convierte una cadena de texto (asumiendo que está separada por guiones) al formato 'Title Case' (Mayúscula Inicial de Título).
+ * Convierte una cadena de texto (asumiendo que está separada por espacios) al formato 'Title Case' (Mayúscula Inicial de Título).
  * Aplica mayúscula inicial a la primera palabra y a todas las palabras que no sean artículos, conjunciones o preposiciones (las excepciones).
  * Está diseñada para usarse en conjunto con formatClientName, capitalizando el nombre del cliente que envía la API Airtable.
 */

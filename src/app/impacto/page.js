@@ -1,7 +1,43 @@
 import Image from "next/image";
 import { EnvironmentalCard } from "@/app/impacto/EnvironmentalCard";
+import { useState, useEffect } from "react";
+import { getSession } from "@/lib/utils/authSession";
+import { useRouter } from "next/navigation";
+import { useObjectState } from "@/hooks/useObjectState";
+import initialValues from "@/app/impacto/initialValues";
 
 export default function EnvironmentalImpactMetrics() {
+    const router = useRouter();
+    // Estado para el loader
+    const [isLoading, setIsLoading] = useState(true);
+
+    // Estado objeto para almacenar los datos que se van a mostrar en esta vista
+    const { objectData: viewData, updateStateByKey } = useObjectState(initialValues);
+
+    // Valida la sesión y carga de los datos
+    useEffect(() => {
+        const authLoadData = async () => {
+
+            try {
+                // Verifica la sesión del usuario
+                const session = getSession();
+                if (!session) {
+                    router.replace('/');
+                    return;
+                }
+                // Obtiene el nombre del cliente y lo formatea capitalizando
+                const customerName = session.clientNameQuery; // Falta method para formatear correctamente según lo que necesita esta vista
+
+
+            } catch (err) {
+                console.error(err);
+            }
+
+        };
+
+        authLoadData();
+    }, []);
+
     return (
         <div className="w-full min-h-screen overflow-hidden">
             {/* Header con mensaje inspirador */}

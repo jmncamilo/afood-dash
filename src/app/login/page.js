@@ -34,10 +34,10 @@ export default function Login() {
     const handleLogin = () => {
         try {
             // Valida que el input no esté vacío
-            if (!form.customerNit) return alert('Debes ingresar el NIT de tu empresa...');
+            if (!form.customerNit) return alert('Debes ingresar el NIT de tu empresa...'); // TODO: modal
             // Valida que el NIT se encuentre en el diccionario
             const customerNameQuery = validateNit(form.customerNit);
-            if (!customerNameQuery) return alert('El NIT ingresado no está registrado como cliente de afood. Por favor, verifica e intenta nuevamente.');
+            if (!customerNameQuery) return alert('El NIT ingresado no está registrado como cliente de afood. Por favor, verifica e intenta nuevamente.'); // TODO: modal
             // Si el código llega hasta acá, quiere decir que encontró al cliente
             setSession(form.customerNit, customerNameQuery);
             // Respuesta exitosa y redireccionamiento
@@ -45,7 +45,7 @@ export default function Login() {
             router.push('/dashboard');
         } catch (error) {
             // Manejando errores inesperados
-            alert('Ocurrió un error inesperado. Por favor, intenta nuevamente.');
+            alert('Ocurrió un error inesperado. Por favor, intenta nuevamente.'); // TODO: modal
             console.error(error);
         }
     };
