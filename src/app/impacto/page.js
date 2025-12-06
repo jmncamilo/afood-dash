@@ -5,6 +5,7 @@ import { getSession } from "@/lib/utils/authSession";
 import { useRouter } from "next/navigation";
 import { useObjectState } from "@/hooks/useObjectState";
 import initialValues from "@/app/impacto/initialValues";
+import { formatDashedString } from "@/lib/formatters/formatDashedString";
 
 export default function EnvironmentalImpactMetrics() {
     const router = useRouter();
