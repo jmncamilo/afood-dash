@@ -79,10 +79,10 @@ export default function EnvironmentalImpactMetrics() {
 
                     {/* Section métricas ambientales */}
                     <section className="grid grid-cols-2 grid-rows-2 gap-7 md:gap-9 w-fit mx-auto">
-                        <EnvironmentalCard value={999999} srcImage={'/misc/water-afood.svg'} mainLabel={'Agua'} highlightLabel={'ahorrada'} title={'m2 de agua que NO usamos'}/>
-                        <EnvironmentalCard value={88888} srcImage={'/misc/carbon-afood.svg'} mainLabel={'Emisiones'} highlightLabel={'de Co2'}/>
-                        <EnvironmentalCard value={7777} srcImage={'/misc/fish-afood.svg'} mainLabel={'Peces'} highlightLabel={'producidos'}/>
-                        <EnvironmentalCard value={666} srcImage={'/misc/nitrogen-afood.svg'} mainLabel={'Nitrógeno'} highlightLabel={'evitado'} title={'kg de nitrógeno que NO se desperdiciaron'}/>
+                        <EnvironmentalCard value={viewData.waterValue} srcImage={'/misc/water-afood.svg'} mainLabel={'Agua'} highlightLabel={'ahorrada'} title={'m2 de agua que NO usamos'}/>
+                        <EnvironmentalCard value={viewData.carbonValue} srcImage={'/misc/carbon-afood.svg'} mainLabel={'Emisiones'} highlightLabel={'de Co2'}/>
+                        <EnvironmentalCard value={viewData.fishValue} srcImage={'/misc/fish-afood.svg'} mainLabel={'Peces'} highlightLabel={'producidos'}/>
+                        <EnvironmentalCard value={viewData.nitrogenValue} srcImage={'/misc/nitrogen-afood.svg'} mainLabel={'Nitrógeno'} highlightLabel={'evitado'} title={'kg de nitrógeno que NO se desperdiciaron'}/>
                     </section>
 
                     {/* Sección que hace de footer para poner links de acceso */}

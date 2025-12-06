@@ -201,7 +201,7 @@ export default function Dashboard() {
 
                 {/* Sección política de pago y de entrega */}
                 <section className={styles.sectionPolicies}>
-                    <PoliciesDropdown />
+                    <PoliciesDropdown title={''} text={''} list={[]} />
                     <PoliciesDropdown />
                 </section>
             </main>
