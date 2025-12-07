@@ -187,7 +187,7 @@ export default function Dashboard() {
                 </section>
 
                 {/* Sección logros afoodlover */}
-                    {/* TODO: ajustar la cantidad de pedidos para que un cliente sea considerado afoodlover */}
+                    {/* TODO: ajustar la cantidad de pedidos a 20 para que un cliente se considere afoodlover */}
                 {ordersData?.data?.length > 15 && (
                     <section className={styles.sectionAchievements}>
                         <div className={styles.achievementsCardWrapper}>

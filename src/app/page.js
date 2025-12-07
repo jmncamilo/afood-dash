@@ -138,7 +138,7 @@ export default function LandingAfood() {
                                                     { Icon: Instagram, href: "https://www.instagram.com/afood_co/" },
                                                     { Icon: Linkedin, href: "https://www.linkedin.com/company/afood-co/" },
                                                     { Icon: Facebook, href: "https://www.facebook.com/AFOOD.COL/" },
-                                                    { Icon: WhatsAppIcon, href: "https://wa.me/573158882060" }
+                                                    { Icon: WhatsAppIcon, href: "https://wa.me/573125185174" }
                                                 ].map((item, index) => (
                                                     <a
                                                         key={index}
