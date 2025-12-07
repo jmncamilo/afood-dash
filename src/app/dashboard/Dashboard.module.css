@@ -236,7 +236,9 @@
 }
 
 .summaryCardTextWrapperValueLong {
-    font-size: 1.9rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.92rem;
 }
 
 /* =-=-= Sección de la tarjeta que tiene un call to action para redirigir a la vista de impacto ambiental =-=-= */

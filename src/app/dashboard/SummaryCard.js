@@ -6,7 +6,7 @@ export function SummaryCard({ firstLineText, secondLineText, value = '0', second
             <div className={styles.summaryCardTextWrapper}>
                 <span className={styles.summaryCardTextWrapperTitle}>{firstLineText}</span>
                 <span className={styles.summaryCardTextWrapperTitle}>{secondLineText}</span>
-                <span className={`${styles.summaryCardTextWrapperValue} ${value.length > 3 && styles.summaryCardTextWrapperValueLong}`}>{value}</span>
+                <span className={`${styles.summaryCardTextWrapperValue} ${(value.length > 3 || Number(value) >= 999) && styles.summaryCardTextWrapperValueLong}`}>{value}</span>
             </div>
         </div>
     );
