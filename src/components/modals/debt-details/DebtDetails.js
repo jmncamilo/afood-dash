@@ -12,6 +12,11 @@ export function DebtDetails({ onClose, debtOrdersData }) {
         window.open("https://wa.link/nl54je", "_blank");
     };
 
+    // Redireccionar a plataforma de pago
+    const handlePaymentClick = () => {
+        window.open("https://checkout.wompi.co/l/RUknxO", "_blank");
+    };
+
     return (
         <div
             className="fixed inset-0 bg-black/40 backdrop-blur-md backdrop-saturate-150 flex items-center justify-center p-0 md:p-6 lg:p-8 z-50 overflow-hidden"
@@ -80,6 +85,7 @@ export function DebtDetails({ onClose, debtOrdersData }) {
                             <button
                                 className={styles.firstButton}
                                 disabled={!debtOrdersData?.length}
+                                onClick={handlePaymentClick}
                             >
                                 Pagar
                             </button>
