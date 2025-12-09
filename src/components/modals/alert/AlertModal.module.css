@@ -1,19 +1,43 @@
 .contentWrapper {
-
+    width: 60%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .imageContainer {
-
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 7.6rem;
+    margin: 0.2rem;
+    /*background-color: #dffdce;*/
 }
 
-.title {
+.iconImage {
+    filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.6));
+}
 
+.title,
+.message {
+    color: #1c1c1c;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0.1rem;
+    letter-spacing: 0.03rem;
 }
 
 .message{
-
+    color: #404040;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0;
 }
 
 .buttonContainer {
-
+    /*background-color: #0f0f0f;*/
+    padding: 1rem 0;
 }

@@ -21,6 +21,7 @@ import { formatSliceNit } from "@/lib/formatters/formatSliceNit";
 import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateIntegerColumnTotal";
 import { PoliciesDropdown } from "@/components/policies-dropdown/PoliciesDropdown";
 import { termsConditionsValues } from "@/app/dashboard/TermsConditionsValues";
+import { AlertModal } from "@/components/modals/alert/AlertModal";
 
 
 export default function Dashboard() {
@@ -85,9 +86,13 @@ export default function Dashboard() {
     // Usando el custom hook para manejar el modal del detalle de la deuda
     const { isOpen: isOpenDebtDetails, open: openDebtDetails, close: closeDebtDetails } = useModal();
 
+    // Estado para manejar el modal de los beneficios
+    const [isBenefitsOn, setIsBenefitsOn] = useState(false);
+
     // TESTING CJ
     const testConsolePrinting = () => {
         alert('Beneficios click...');
+        setIsBenefitsOn(true);
         console.log('Pedidos', ordersData);
         console.log('Deudas', debtOrdersData);
     }
@@ -210,6 +215,16 @@ export default function Dashboard() {
 
             {/* Componente para mostrar detalles de la deuda */}
             {isOpenDebtDetails && <DebtDetails onClose={closeDebtDetails} debtOrdersData={debtOrdersData}/>}
+
+            {/* Componente modal para mostrar los beneficios del cliente por ser afoodlover */}
+            <AlertModal
+                isOpen={isBenefitsOn}
+                srcImage={'/icons/3d-gift.png'}
+                title={'Soy un Título'}
+                message={'Soy el mensaje...'}
+                onClose={() => setIsBenefitsOn(false)}
+                hasMessageList={false}
+            />
 
             {/* Componente loader */}
             {isLoading && <Loader/>}
