@@ -97,6 +97,7 @@ export default function Dashboard() {
         console.log('Deudas', debtOrdersData);
     }
 
+
     return (
         // Contenedor padre
         <div className="w-full min-h-screen px-10 py-6 sm:px-6 md:px-8 lg:px-36 overflow-hidden">
