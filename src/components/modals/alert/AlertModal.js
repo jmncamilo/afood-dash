@@ -1,11 +1,9 @@
 import styles from "./AlertModal.module.css";
 import Image from "next/image";
 
-export function AlertModal({ isOpen, onClose, srcImage, title, message, hasMessageList = false }) {
+export function AlertModal({ isOpen, onClose, srcImage, title, message, messageList = null }) {
 
     if (!isOpen) return null;
-
-    // TODO: crear estilos para la lista (ol) en el render condicional con el ternario
 
     return (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-md backdrop-saturate-150 flex items-center justify-center p-0 md:p-6 lg:p-8 z-50 overflow-hidden">
@@ -21,8 +19,10 @@ export function AlertModal({ isOpen, onClose, srcImage, title, message, hasMessa
                     </div>
                     <div className={styles.title}>{title}</div>
                     <div className={styles.message}>
-                        {hasMessageList
-                            ? 'True'
+                        {!!messageList?.length
+                            ? <ol className='text-sm md:text-base list-decimal list-inside text-justify space-y-1.5 marker:font-bold marker:text-[#00a751]'>
+                                {messageList.map(item => <li key={item.id}>{item.content}</li>)}
+                            </ol>
                             : message
                         }
                     </div>

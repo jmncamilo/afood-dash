@@ -22,6 +22,7 @@ import { calculateIntegerColumnTotal } from "@/lib/calculations/calculateInteger
 import { PoliciesDropdown } from "@/components/policies-dropdown/PoliciesDropdown";
 import { termsConditionsValues } from "@/app/dashboard/TermsConditionsValues";
 import { AlertModal } from "@/components/modals/alert/AlertModal";
+import { benefitsValues } from "@/app/dashboard/BenefitsValues";
 
 
 export default function Dashboard() {
@@ -220,10 +221,10 @@ export default function Dashboard() {
             <AlertModal
                 isOpen={isBenefitsOn}
                 srcImage={'/icons/3d-gift.png'}
-                title={'Soy un Título'}
+                title={benefitsValues[0].title}
                 message={'Soy el mensaje...'}
                 onClose={() => setIsBenefitsOn(false)}
-                hasMessageList={false}
+                messageList={benefitsValues[0].list}
             />
 
             {/* Componente loader */}

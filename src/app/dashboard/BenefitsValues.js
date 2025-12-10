@@ -1,6 +1,6 @@
 export const benefitsValues = [
     {
-        title: 'Tus Beneficios Exclusivos',
+        title: '¡Tus Beneficios Exclusivos!',
         list: [
             {
                 id: 1,
