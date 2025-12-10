@@ -92,8 +92,7 @@ export default function Dashboard() {
 
     // TESTING CJ
     const testConsolePrinting = () => {
-        alert('Beneficios click...');
-        setIsBenefitsOn(true);
+        alert('Imprimiendo datos en consola...');
         console.log('Pedidos', ordersData);
         console.log('Deudas', debtOrdersData);
     }
@@ -199,7 +198,12 @@ export default function Dashboard() {
                             <div className={styles.achievementsCardTextContainer}>
                                 <span className="block text-[0.7rem] md:text-lg lg:text-xl font-bold">Eres Afoodlover</span>
                                 <span className="block text-[0.7rem] md:text-base lg:text-lg font-normal lg:leading-snug">¡Completaste más de 20 pedidos!</span>
-                                <span className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors" onClick={testConsolePrinting}>Beneficios</span>
+                                <span
+                                    className="block px-4 py-1 text-[0.6rem] md:text-base lg:text-md font-normal lg:leading-snug cursor-pointer bg-emerald-400 text-white rounded-lg hover:bg-emerald-500 transition-colors"
+                                    onClick={() => setIsBenefitsOn(true)}
+                                >
+                                    Beneficios
+                                </span>
                             </div>
                         </div>
                     </section>
@@ -211,6 +215,11 @@ export default function Dashboard() {
                         title={termsConditionsValues[0].title}
                         text={termsConditionsValues[0].text}
                         list={termsConditionsValues[0].list} />
+                </section>
+
+                {/* Sección de logout */}
+                <section className={styles.sectionLogout}>
+                    <button className={styles.buttonLogout} onClick={testConsolePrinting}>Cerrar Sesión</button>
                 </section>
             </main>
 
