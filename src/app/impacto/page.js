@@ -11,11 +11,16 @@ import { formatDashedString } from "@/lib/formatters/formatDashedString";
 import { firstThreeWords } from "@/lib/utils/firstThreeWords";
 import { formatCapitalize } from "@/lib/formatters/formatCapitalize";
 import { Loader } from "@/components/common/Loader";
+import { useFetch } from "@/hooks/useFetch";
+import { calculateNumericColumnTotal } from "@/lib/calculations/calculateNumericColumnTotal";
 
 export default function EnvironmentalImpactMetrics() {
     const router = useRouter();
     // Estado para el loader
     const [isLoading, setIsLoading] = useState(true);
+
+    // Custom hook para manejar el fetching
+    const { data: allOrdersDelivered, execute} = useFetch('/api/airtable');
 
     // Estado objeto para almacenar los datos que se van a mostrar en esta vista
     const { objectData: viewData, updateStateByKey } = useObjectState(initialValues);
@@ -35,7 +40,19 @@ export default function EnvironmentalImpactMetrics() {
                 const customerName = firstThreeWords(formatCapitalize(formatDashedString(session.clientNameQuery)));
                 updateStateByKey('customerName', customerName); // Actualiza el estado que controla los datos de la vista
 
-                // TODO: obtener los datos requeridos desde airtable según el requerimiento de la tabla a consultar que aún se esta determinando
+                // TODO: obtener los datos requeridos desde airtable para renderizar las métricas
+                const data = await execute('api/airtable?customer=');
+                if (!data.success) {
+                    router.replace('/dashboard');
+                    return;
+                }
+                const nitrogen = calculateNumericColumnTotal(data.data, 'Nitrógeno Evitado en Cuerpos de Agua Kg');
+                updateStateByKey('nitrogenValue', nitrogen);
+                const carbon = calculateNumericColumnTotal(data.data, 'Emisiones CO2e Evitadas Kg');
+                updateStateByKey('carbonValue', carbon);
+                const water = calculateNumericColumnTotal(data.data, 'Agua Ahorrada L');
+                updateStateByKey('waterValue', water);
+
 
                 // UX
                 setIsLoading(false);

@@ -24,6 +24,7 @@ import { termsConditionsValues } from "@/app/dashboard/TermsConditionsValues";
 import { AlertModal } from "@/components/modals/alert/AlertModal";
 import { benefitsValues } from "@/app/dashboard/BenefitsValues";
 import { setMetrics, getMetrics } from "@/lib/utils/metricsSession";
+import { calculateNumericColumnTotal } from "@/lib/calculations/calculateNumericColumnTotal";
 
 
 export default function Dashboard() {
@@ -37,7 +38,7 @@ export default function Dashboard() {
     const { objectData:additionalData, setObjectData:setAdditionalData, updateStateByKey } = useObjectState(additionalDataDefaultValues);
 
     // Custom hook para el fetching de datos con url del endpoint base para la consulta de los datos desde airtable
-    const { data: ordersData, execute, loading } = useFetch('/api/airtable');
+    const { data: ordersData, execute } = useFetch('/api/airtable');
 
     // Estado para almacenar los pedidos que aún están pendientes de pagar (deudas del cliente)
     const [debtOrdersData, setDebtOrdersData] = useState([]);
@@ -54,7 +55,7 @@ export default function Dashboard() {
                 }
                 // Obtiene el nombre del cliente y concatenándolo para construir la query string de la url del fetch
                 const completeQuery = `?customer=${session.clientNameQuery}`;
-                    console.log(completeQuery);
+                console.log(completeQuery); // TESTING CJ
                 // Ejecuta el fetching
                 const data = await execute(`/api/airtable${completeQuery}`);
                 // Valída la respuesta del back para dar más robustez
@@ -70,11 +71,14 @@ export default function Dashboard() {
                 updateStateByKey('customerName', formatCapitalize(formatClientName(data?.data?.[0]?.['Id Cumplimiento'])));
                 updateStateByKey('customerNit', formatSliceNit(session?.nit || additionalData.customerNit));
                 updateStateByKey('customerLogo', session?.clientNameQuery);
-                    // Seteando las métricas ambientales en el localstorage
-                const metrics = getMetrics();
-                // if (!metrics) {
-                //
-                // }
+                    // TODO: probando esto -> seteando las métricas ambientales en el localstorage únicamente para el cliente
+                    const metrics = getMetrics();
+                    if (!metrics) {
+                        const nitrogen = calculateNumericColumnTotal(data.data, 'Nitrógeno Evitado en Cuerpos de Agua Kg');
+                        const carbon = calculateNumericColumnTotal(data.data, 'Emisiones CO2e Evitadas Kg');
+                        const water = calculateNumericColumnTotal(data.data, 'Agua Ahorrada L');
+                        setMetrics(carbon, nitrogen, water); // Seteando métricas ambientales en el localstorage necesarios para la vista correspondiente
+                    }
                 // UX
                 setIsLoading(false);
 
