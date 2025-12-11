@@ -6,3 +6,7 @@ export function getMetrics() {
     const metrics = localStorage.getItem('metricsSession');
     return metrics ? JSON.parse(metrics) : null;
 }
+
+export function clearMetrics() {
+    localStorage.removeItem('metricsSession');
+}
