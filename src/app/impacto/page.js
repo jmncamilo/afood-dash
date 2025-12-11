@@ -42,7 +42,7 @@ export default function EnvironmentalImpactMetrics() {
                 const customerName = firstThreeWords(formatCapitalize(formatDashedString(session.clientNameQuery)));
                 updateStateByKey('customerName', customerName); // Actualiza el estado que controla los datos de la vista
 
-                // TODO: obtener los datos requeridos desde airtable para renderizar las métricas
+                // Obtiene y setea los datos requeridos desde airtable para renderizar las métricas
                 const data = await execute('api/airtable?customer=');
                 if (!data.success) {
                     router.replace('/dashboard');
@@ -54,7 +54,6 @@ export default function EnvironmentalImpactMetrics() {
                 updateStateByKey('carbonValue', formatToTwoDecimals(carbon));
                 const water = calculateNumericColumnTotal(data.data, 'Agua Ahorrada L');
                 updateStateByKey('waterValue', formatToTwoDecimals(water));
-
 
                 // UX
                 setIsLoading(false);

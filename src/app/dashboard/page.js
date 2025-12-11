@@ -71,14 +71,7 @@ export default function Dashboard() {
                 updateStateByKey('customerName', formatCapitalize(formatClientName(data?.data?.[0]?.['Id Cumplimiento'])));
                 updateStateByKey('customerNit', formatSliceNit(session?.nit || additionalData.customerNit));
                 updateStateByKey('customerLogo', session?.clientNameQuery);
-                    // TODO: probando esto -> seteando las métricas ambientales en el localstorage únicamente para el cliente
-                    const metrics = getMetrics();
-                    if (!metrics) {
-                        const nitrogen = calculateNumericColumnTotal(data.data, 'Nitrógeno Evitado en Cuerpos de Agua Kg');
-                        const carbon = calculateNumericColumnTotal(data.data, 'Emisiones CO2e Evitadas Kg');
-                        const water = calculateNumericColumnTotal(data.data, 'Agua Ahorrada L');
-                        setMetrics(carbon, nitrogen, water); // Seteando métricas ambientales en el localstorage necesarios para la vista correspondiente
-                    }
+
                 // UX
                 setIsLoading(false);
 
