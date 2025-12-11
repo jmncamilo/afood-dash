@@ -376,7 +376,7 @@
 
 
 
-/* =-=-= Media queries para ajustar detalles en pantallas la figura de fondo y otros pequeños detalles =-=-= */
+/* =-=-= Media queries =-=-= */
 @media (max-width: 640px) {
     .sectionLogout {
         width: 100%;
