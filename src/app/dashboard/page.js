@@ -23,8 +23,6 @@ import { PoliciesDropdown } from "@/components/policies-dropdown/PoliciesDropdow
 import { termsConditionsValues } from "@/app/dashboard/TermsConditionsValues";
 import { AlertModal } from "@/components/modals/alert/AlertModal";
 import { benefitsValues } from "@/app/dashboard/BenefitsValues";
-import { setMetrics, getMetrics } from "@/lib/utils/metricsSession";
-import { calculateNumericColumnTotal } from "@/lib/calculations/calculateNumericColumnTotal";
 
 
 export default function Dashboard() {
