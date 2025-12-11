@@ -23,6 +23,7 @@ import { PoliciesDropdown } from "@/components/policies-dropdown/PoliciesDropdow
 import { termsConditionsValues } from "@/app/dashboard/TermsConditionsValues";
 import { AlertModal } from "@/components/modals/alert/AlertModal";
 import { benefitsValues } from "@/app/dashboard/BenefitsValues";
+import { setMetrics, getMetrics } from "@/lib/utils/metricsSession";
 
 
 export default function Dashboard() {
@@ -65,10 +66,15 @@ export default function Dashboard() {
                 }
                 // Filtra y setea la data del fetching para obtener los pedidos pendientes por pagar
                 setDebtOrdersData(filterOrders(data.data, 'Status Pago', 'Sin Pagar'));
-                // Seteando información adicional importante para ux
+                // Seteando información adicional importante para UX
                 updateStateByKey('customerName', formatCapitalize(formatClientName(data?.data?.[0]?.['Id Cumplimiento'])));
                 updateStateByKey('customerNit', formatSliceNit(session?.nit || additionalData.customerNit));
                 updateStateByKey('customerLogo', session?.clientNameQuery);
+                    // Seteando las métricas ambientales en el localstorage
+                const metrics = getMetrics();
+                // if (!metrics) {
+                //
+                // }
                 // UX
                 setIsLoading(false);
 

@@ -33,7 +33,10 @@ export async function GET(req) {
                 'Cantidad g Aromáticas',
                 'Precio Unitario Aromáticas',
                 'Precio Total Aromáticas',
-                'Precio del Pedido'
+                'Precio del Pedido',
+                'Agua Ahorrada L',
+                'Emisiones CO2e Evitadas Kg',
+                'Nitrógeno Evitado en Cuerpos de Agua Kg'
             ],
             filterByFormula: formula,
             sort: [{ field: "Id Cumplimiento", direction: "asc" }],
