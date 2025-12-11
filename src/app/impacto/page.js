@@ -13,6 +13,7 @@ import { formatCapitalize } from "@/lib/formatters/formatCapitalize";
 import { Loader } from "@/components/common/Loader";
 import { useFetch } from "@/hooks/useFetch";
 import { calculateNumericColumnTotal } from "@/lib/calculations/calculateNumericColumnTotal";
+import { formatToTwoDecimals } from "@/lib/formatters/formatToTwoDecimals";
 
 export default function EnvironmentalImpactMetrics() {
     const router = useRouter();
@@ -47,11 +48,11 @@ export default function EnvironmentalImpactMetrics() {
                     return;
                 }
                 const nitrogen = calculateNumericColumnTotal(data.data, 'Nitrógeno Evitado en Cuerpos de Agua Kg');
-                updateStateByKey('nitrogenValue', nitrogen);
+                updateStateByKey('nitrogenValue', formatToTwoDecimals(nitrogen));
                 const carbon = calculateNumericColumnTotal(data.data, 'Emisiones CO2e Evitadas Kg');
-                updateStateByKey('carbonValue', carbon);
+                updateStateByKey('carbonValue', formatToTwoDecimals(carbon));
                 const water = calculateNumericColumnTotal(data.data, 'Agua Ahorrada L');
-                updateStateByKey('waterValue', water);
+                updateStateByKey('waterValue', formatToTwoDecimals(water));
 
 
                 // UX
