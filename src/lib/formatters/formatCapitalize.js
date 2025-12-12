@@ -7,7 +7,7 @@ export function formatCapitalize(text) {
     if (typeof text !== 'string' || text.trim().length === 0) {
         return 'Afood Co';
     }
-    const exceptions = ['de', 'del', 'la', 'el', 'y', 'a', 'en', 'con', 'por', 'para', 'sin', 'o', 'and'];
+    const exceptions = ['de', 'del', 'el', 'y', 'a', 'en', 'con', 'por', 'para', 'sin', 'o', 'and'];
     return text
         .toLowerCase()
         .split(' ')
