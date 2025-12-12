@@ -85,17 +85,19 @@ export default function Dashboard() {
     }, []);
 
 
-    // Usando el custom hook para manejar el modal del detalle de la deuda
+    // Custom hook para manejar el modal del detalle de la deuda
     const { isOpen: isOpenDebtDetails, open: openDebtDetails, close: closeDebtDetails } = useModal();
 
     // Estado para manejar el modal de los beneficios
     const [isBenefitsOn, setIsBenefitsOn] = useState(false);
 
-    // TESTING CJ
-    const testConsolePrinting = () => {
-        alert('Imprimiendo datos en consola...');
-        console.log('Pedidos', ordersData);
-        console.log('Deudas', debtOrdersData);
+    // Handler para cerrar la sesión
+    const handleLogout = () => {
+        alert('Imprimiendo datos en consola y cerrando sesión...'); // TESTING CJ
+        console.log('Pedidos:', ordersData); // TESTING CJ
+        console.log('Deudas:', debtOrdersData); // TESTING CJ
+        clearSession();
+        router.replace('/');
     }
 
 
@@ -221,7 +223,7 @@ export default function Dashboard() {
 
                 {/* Sección de logout */}
                 <section className={styles.sectionLogout}>
-                    <button className={styles.buttonLogout} onClick={testConsolePrinting}>Cerrar Sesión</button>
+                    <button className={styles.buttonLogout} onClick={handleLogout}>Cerrar Sesión</button>
                 </section>
             </main>
 

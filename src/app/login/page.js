@@ -30,11 +30,20 @@ export default function Login() {
     // Usa el custom hook useForm y establece valor inicial vacío
     const { form, handlerSetForm, resetForm } = useForm({ customerNit: '' });
 
+    // Handler del input con validación
+    const handleChangeNit = e => {
+        if (!/^\d*$/.test(e.target.value)) return;
+        if (e.target.value.length > 12) return;
+        handlerSetForm(e);
+    };
+
     // Handler con la lógica del login
     const handleLogin = () => {
         try {
             // Valida que el input no esté vacío
             if (!form.customerNit) return alert('Debes ingresar el NIT de tu empresa...'); // TODO: modal
+            // Valida que el input tenga más de 5 caracteres
+            if (form.customerNit.length < 6) return alert('El NIT ingresado no cumple con el formato legal requerido. Por favor, verifica e intenta nuevamente.');
             // Valida que el NIT se encuentre en el diccionario
             const customerNameQuery = validateNit(form.customerNit);
             if (!customerNameQuery) return alert('El NIT ingresado no está registrado como cliente de afood. Por favor, verifica e intenta nuevamente.'); // TODO: modal
@@ -91,7 +100,7 @@ export default function Login() {
                                 <input
                                     name="customerNit"
                                     value={form.customerNit}
-                                    onChange={handlerSetForm}
+                                    onChange={handleChangeNit}
                                     placeholder={'Ej: 999888222'}
                                     type="number"
                                 />
