@@ -36,7 +36,8 @@ export async function GET(req) {
                 'Precio del Pedido',
                 'Agua Ahorrada L',
                 'Emisiones CO2e Evitadas Kg',
-                'Nitrógeno Evitado en Cuerpos de Agua Kg'
+                'Nitrógeno Evitado en Cuerpos de Agua Kg',
+                'Factura'
             ],
             filterByFormula: formula,
             sort: [{ field: "Id Cumplimiento", direction: "asc" }],
