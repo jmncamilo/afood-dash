@@ -23,6 +23,11 @@ export const CLIENT_NIT_MAP = {
     '1019138168': 'saint-louis',
     '40391643': 'la-topochera',
     '901698572': 'tpk-cocina-callejera',
+    '86059504': 'mateo-pub',
+    '40369773': 'central-sir-burger',
+    '901590074': 'rodizio-brazon-brazileiro',
+    '5696124': 'asadero-rincon-santandereano',
+    '1122650349': 'jende-coffee-roasters',
     // TODO: agregar los clientes restantes de afood...
 };
 
