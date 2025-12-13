@@ -1,13 +1,18 @@
 import styles from "@/components/modals/debt-details/DebtDetails.module.css";
 
-export function OrderRow({ qtyItems, products, total, date }) {
+export function OrderRow({ qtyItems, products, total, date, invoiceData = null }) {
 
     // Si no se pasan todas las props o se pasan como valores falsy, no renderiza el componente
     if (!qtyItems || !products || !total || !date) return null;
 
     return (
         <div className={styles.wrapperOrderRow}>
-            <div className={styles.iconOrderRowContainer}>
+            <div
+                className={`${styles.iconOrderRowContainer} ${invoiceData?.url && styles.iconOrderRowContainerPointer}`}
+                {...(invoiceData?.url && {
+                    onClick: () => window.open(invoiceData.url, "_blank", "noopener,noreferrer")
+                })}
+            >
                 <span className={styles.iconFigureOrder}></span>
             </div>
             <div className={styles.textOrderRowContainer}>

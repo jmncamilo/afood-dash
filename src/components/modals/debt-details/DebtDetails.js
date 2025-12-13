@@ -50,7 +50,9 @@ export function DebtDetails({ onClose, debtOrdersData }) {
                                             qtyItems={totalItemsInOrder}
                                             products={orderDetails}
                                             total={formatCurrency(order?.['Precio del Pedido'])}
-                                            date={order?.['Fecha real de entrega raw']}/>
+                                            date={order?.['Fecha real de entrega raw']}
+                                            invoiceData={order?.['Factura']?.[0]}
+                                        />
                                     )
                                 })
                             )
