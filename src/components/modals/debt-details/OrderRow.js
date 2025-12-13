@@ -10,7 +10,8 @@ export function OrderRow({ qtyItems, products, total, date, invoiceData = null }
             <div
                 className={`${styles.iconOrderRowContainer} ${invoiceData?.url && styles.iconOrderRowContainerPointer}`}
                 {...(invoiceData?.url && {
-                    onClick: () => window.open(invoiceData.url, "_blank", "noopener,noreferrer")
+                    onClick: () => window.open(invoiceData.url, "_blank", "noopener,noreferrer"),
+                    title: 'Ver factura'
                 })}
             >
                 <span className={styles.iconFigureOrder}></span>
