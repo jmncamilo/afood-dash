@@ -53,12 +53,12 @@ export default function Dashboard() {
                 }
                 // Obtiene el nombre del cliente y concatenándolo para construir la query string de la url del fetch
                 const completeQuery = `?customer=${session.clientNameQuery}`;
-                console.log(completeQuery); // TESTING CJ
+                // console.log(completeQuery); // TESTING CJ
                 // Ejecuta el fetching
                 const data = await execute(`/api/airtable${completeQuery}`);
                 // Valída la respuesta del back para dar más robustez
                 if (!data.success) {
-                    alert('Error en el servidor, vuelve a iniciar sesión...'); // TODO: hacer modal esto
+                    alert('Error en el servidor, vuelve a iniciar sesión...');
                     clearSession();
                     router.replace('/login');
                     return;

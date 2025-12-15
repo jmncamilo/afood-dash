@@ -60,7 +60,7 @@ export default function EnvironmentalImpactMetrics() {
 
             } catch (err) {
                 console.error('Error cargando la vista:', err);
-                alert('Error en el servidor, vuelve a ingresar...'); // TODO: hacer modal
+                alert('Error en el servidor, vuelve a ingresar...');
                 clearSession();
                 router.replace('/');
             }
