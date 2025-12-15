@@ -28,6 +28,7 @@ export const CLIENT_NIT_MAP = {
     '901590074': 'rodizio-brazon-brazileiro',
     '5696124': 'asadero-rincon-santandereano',
     '1122650349': 'jende-coffee-roasters',
+    '999123789': 'sunroof-coffee',
     // TODO: agregar los clientes restantes de afood...
 };
 
