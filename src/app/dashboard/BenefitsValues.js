@@ -8,7 +8,7 @@ export const benefitsValues = [
             },
             {
                 id: 2,
-                content: 'Acumula el 1% 💵 del valor total de tu compra semanal en productos como albahaca, cilantrón y hierbabuena. Redime cuando quieras.'
+                content: 'Redime el 1% 💵 del valor total de tu compra semanal en productos como albahaca, cilantrón y hierbabuena. Solicítalo en tu siguiente pedido.'
             },
             {
                 id: 3,
