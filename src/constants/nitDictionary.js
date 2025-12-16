@@ -1,7 +1,7 @@
 export const CLIENT_NIT_MAP = {
     '39543172': 'sandwich-inc-grill',
     '901431063': 'amarradero-del-mico',
-    '888888888': 'lalala-cocktails',
+    '1014180595': 'lalala-cocktails',
     '1006798649': 'la-bendita-parrilla',
     '901028991': 'peru-sazon-gourmet',
     '40332783': 'love-restaurante',
@@ -28,8 +28,8 @@ export const CLIENT_NIT_MAP = {
     '901590074': 'rodizio-brazon-brazileiro',
     '5696124': 'asadero-rincon-santandereano',
     '1122650349': 'jende-coffee-roasters',
-    '777777777': 'sunroof-coffee',
-    '999999999': 'homero-mexican-food',
+    '1122515514': 'sunroof-coffee',
+    '901969718': 'homero-mexican-food',
     '1059707869': 'ruta-65-cafe',
     // TODO: agregar los clientes restantes de afood...
 };
