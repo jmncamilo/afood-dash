@@ -92,15 +92,34 @@ export default function EnvironmentalImpactMetrics() {
             </header>
 
             {/* Contenedor principal con padding lateral */}
-            <div className="px-10 py-6 sm:px-6 md:px-8 lg:px-36">
+            <div className="px-10 py-3 sm:px-6 md:px-8 lg:px-36">
                 <main className="max-w-7xl mx-auto flex flex-col overflow-hidden rounded-3xl p-0.5 md:p-8 lg:p-10">
 
                     {/* Section métricas ambientales */}
-                    <section className="grid grid-cols-2 grid-rows-2 gap-7 md:gap-9 w-fit mx-auto">
-                        <EnvironmentalCard value={formatCurrency(viewData.waterValue)} srcImage={'/misc/water-afood.svg'} mainLabel={'Agua'} highlightLabel={'ahorrada'} title={'m2 de agua que NO usamos'}/>
-                        <EnvironmentalCard value={formatCurrency(viewData.carbonValue)} srcImage={'/misc/carbon-afood.svg'} mainLabel={'Emisiones'} highlightLabel={'de Co2'}/>
-                        <EnvironmentalCard value={formatCurrency(viewData.fishValue)} srcImage={'/misc/fish-afood.svg'} mainLabel={'Peces'} highlightLabel={'producidos'}/>
-                        <EnvironmentalCard value={formatCurrency(viewData.nitrogenValue)} srcImage={'/misc/nitrogen-afood.svg'} mainLabel={'Nitrógeno'} highlightLabel={'evitado'} title={'kg de nitrógeno que NO se desperdiciaron'}/>
+                    <section className="flex flex-col gap-6 md:gap-8 w-full max-w-4xl mx-auto">
+                        <EnvironmentalCard
+                            value={formatCurrency(viewData.waterValue)}
+                            srcImage={'/misc/water-afood.svg'}
+                            mainLabel={'Agua'}
+                            highlightLabel={'ahorrada'}
+                            title={'m2 de agua que NO usamos'}
+                            description={'Reducción en el consumo de agua gracias a prácticas agrícolas sostenibles'}
+                        />
+                        <EnvironmentalCard
+                            value={formatCurrency(viewData.carbonValue)}
+                            srcImage={'/misc/carbon-afood.svg'}
+                            mainLabel={'Emisiones'}
+                            highlightLabel={'de Co2'}
+                            description={'Emisiones de CO2 evitadas mediante procesos eficientes y tecnología limpia'}
+                        />
+                        <EnvironmentalCard
+                            value={formatCurrency(viewData.nitrogenValue)}
+                            srcImage={'/misc/nitrogen-afood.svg'}
+                            mainLabel={'Nitrógeno'}
+                            highlightLabel={'evitado'}
+                            title={'kg de nitrógeno que NO se desperdiciaron'}
+                            description={'Nitrógeno no liberado en cuerpos de agua, protegiendo ecosistemas acuáticos'}
+                        />
                     </section>
 
                     {/* Sección que hace de footer para poner links de acceso */}

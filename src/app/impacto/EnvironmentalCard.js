@@ -1,20 +1,36 @@
 import Image from "next/image";
 
-export function EnvironmentalCard({ value = 0, srcImage = '/misc/water-afood.svg', mainLabel = 'Agua', highlightLabel = 'ahorrada', title = '' }) {
+export function EnvironmentalCard({ value, srcImage, mainLabel, highlightLabel, title, description }) {
     return (
-        <div title={title} className="p-5 flex flex-col items-center justify-center gap-2 bg-[#fffffb] rounded-xl shadow-md shadow-black/20 md:p-8 w-full max-w-[350px] whitespace-nowrap overflow-hidden text-ellipsis hover:bg-[#f7f7f7] transition-transform duration-200 ease-out hover:-translate-y-2">
-            <h2 className="text-2xl md:text-3xl font-semibold text-[#57B257] font-[family-name:var(--font-bricolage)]">{value}</h2>
-            <div className="relative w-full h-24 md:h-28 flex-shrink-0">
+        <div
+            title={title}
+            className="flex flex-row items-center gap-3 md:gap-6 bg-white rounded-2xl shadow-lg p-4 md:p-8 w-full hover:shadow-xl transition-shadow duration-300"
+        >
+            {/* Imagen */}
+            <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24">
                 <Image
                     src={srcImage}
-                    alt="Agua ahorrada"
-                    fill
-                    className="object-contain object-center"
+                    alt={`${mainLabel} ${highlightLabel}`}
+                    width={96}
+                    height={96}
+                    className="w-full h-full object-contain"
                 />
             </div>
-            <p className="text-md md:text-base text-[#00572D] font-[family-name:var(--font-bricolage)] font-semibold">
-                {mainLabel} <span className="text-[#57B257]">{highlightLabel}</span>
-            </p>
+
+            {/* Contenido */}
+            <div className="flex-1 text-left">
+                <h3 className="text-base md:text-xl font-bold text-[#135A36] mb-0.5 md:mb-1 font-[family-name:var(--font-bricolage)]">
+                    {mainLabel} <span className="text-[#00A751]">{highlightLabel}</span>
+                </h3>
+                <p className="text-3xl md:text-4xl font-extrabold text-[#00A751] mb-1 md:mb-2 font-[family-name:var(--font-bricolage)]">
+                    {value}
+                </p>
+                {description && (
+                    <p className="text-xs md:text-base text-gray-600 leading-tight md:leading-normal">
+                        {description}
+                    </p>
+                )}
+            </div>
         </div>
     );
 }

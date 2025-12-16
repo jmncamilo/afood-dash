@@ -2,7 +2,6 @@ const initialValues = {
     customerName: 'Afood Co',
     waterValue: 999999,
     carbonValue: 999999,
-    fishValue: 999999,
     nitrogenValue: 999999,
 };
 
