@@ -102,34 +102,77 @@ export default function EnvironmentalImpactMetrics() {
                             srcImage={'/misc/water-afood.svg'}
                             mainLabel={'Agua'}
                             highlightLabel={'ahorrada'}
-                            title={'m2 de agua que NO usamos'}
-                            description={'Reducción en el consumo de agua gracias a prácticas agrícolas sostenibles'}
+                            title={'Litros de agua ahorrados'}
+                            description={'Litros: 90% menos consumo de agua que la agricultura tradicional'}
                         />
                         <EnvironmentalCard
                             value={formatCurrency(viewData.carbonValue)}
                             srcImage={'/misc/carbon-afood.svg'}
                             mainLabel={'Emisiones'}
-                            highlightLabel={'de Co2'}
-                            description={'Emisiones de CO2 evitadas mediante procesos eficientes y tecnología limpia'}
+                            highlightLabel={'de CO2'}
+                            title={'Kgs de CO2 evitados'}
+                            description={'Kgs de CO2 equivalente evitados, reduciendo la huella de carbono'}
                         />
                         <EnvironmentalCard
                             value={formatCurrency(viewData.nitrogenValue)}
                             srcImage={'/misc/nitrogen-afood.svg'}
                             mainLabel={'Nitrógeno'}
                             highlightLabel={'evitado'}
-                            title={'kg de nitrógeno que NO se desperdiciaron'}
-                            description={'Nitrógeno no liberado en cuerpos de agua, protegiendo ecosistemas acuáticos'}
+                            title={'Kgs de nitrógeno evitados'}
+                            description={'Kgs de nitrógeno evitados, protegiendo ecosistemas acuáticos'}
                         />
                     </section>
 
-                    {/* Sección que hace de footer para poner links de acceso */}
-                    <section className="flex flex-col items-center justify-center mt-12 mb-8 px-4">
-                        <h2 className="text-2xl md:text-3xl font-bold text-[#135A36] mb-4 text-center">
-                            ¿Quieres saber más? 🌱
+                    {/* Sección que hace de footer para poner links de acceso y detalles de las métricas */}
+                    <section className="flex flex-col items-center justify-center mt-12 mb-8 px-4 gap-0.5">
+                        <h2 className="text-2xl md:text-3xl font-bold text-[#135A36] mb-3 text-center">
+                            ¡Así lo logramos! 🌱
                         </h2>
-                        <p className="text-gray-600 text-base md:text-lg mb-8 text-center max-w-2xl">
-                            Descubre cómo nació la visión de integrar tecnologías y saberes ancestrales en nuestras granjas...
+                        <p className="text-gray-600 text-base md:text-lg mb-8 text-center max-w-3xl">
+                            Nuestro modelo de agricultura vertical local combina tecnología de punta con prácticas sostenibles para generar un impacto real y medible...
                         </p>
+
+                        {/* Desglose de las métricas */}
+                        <div className="w-full max-w-3xl mb-10">
+                            <ul className="space-y-5 md:space-y-6">
+                                <li className="flex items-start gap-4 bg-gradient-to-r from-green-50 to-emerald-50 p-5 md:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <span className="text-2xl md:text-3xl flex-shrink-0">🚚</span>
+                                    <div className="flex-1">
+                                        <h3 className="font-bold text-[#135A36] text-base md:text-lg mb-1">
+                                            Entrega local de bajo impacto
+                                        </h3>
+                                        <p className="text-gray-700 text-sm md:text-base">
+                                            Distribución en un radio de <strong className="text-[#00A751]">1–15 km</strong>, frente a 200–300 km en sistemas convencionales
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li className="flex items-start gap-4 bg-gradient-to-r from-green-50 to-emerald-50 p-5 md:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <span className="text-2xl md:text-3xl flex-shrink-0">💧</span>
+                                    <div className="flex-1">
+                                        <h3 className="font-bold text-[#135A36] text-base md:text-lg mb-1">
+                                            90% menos consumo de agua
+                                        </h3>
+                                        <p className="text-gray-700 text-sm md:text-base">
+                                            Solo <strong className="text-[#00A751]">14,6 L/kg</strong> en granjas AFOOD frente a 146 L/kg en la agricultura tradicional
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li className="flex items-start gap-4 bg-gradient-to-r from-green-50 to-emerald-50 p-5 md:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <span className="text-2xl md:text-3xl flex-shrink-0">✅</span>
+                                    <div className="flex-1">
+                                        <h3 className="font-bold text-[#135A36] text-base md:text-lg mb-1">
+                                            Validado por CIF Climate KIC
+                                        </h3>
+                                        <p className="text-gray-700 text-sm md:text-base">
+                                            Nuestro impacto ambiental está certificado por una de las principales comunidades climáticas de Europa
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
 
                         <div className="flex flex-wrap gap-4 justify-center items-center">
                             {/* Sitio web */}
@@ -161,6 +204,28 @@ export default function EnvironmentalImpactMetrics() {
                             >
                                 💬 Escríbenos a WhatsApp
                             </a>
+                        </div>
+                    </section>
+
+                    {/* Botón volver al huerto (dashboard) */}
+                    <section className="flex flex-col items-center justify-center mt-14 mb-12 px-4">
+                        <div className="w-full max-w-md">
+                            <button
+                                onClick={() => router.push('/dashboard')}
+                                className="group relative w-full bg-gradient-to-r from-[#00A751] to-[#135A36] hover:from-[#135A36] hover:to-[#00A751] text-white px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-3"
+                            >
+                                <span
+                                    className="text-xl md:text-2xl group-hover:scale-110 transition-transform duration-300">🌿</span>
+                                <span className="text-base md:text-lg font-bold">
+                                    Volver a mi huerto
+                                </span>
+                                <span
+                                    className="text-xl md:text-2xl group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            </button>
+
+                            <p className="text-center text-gray-500 text-sm mt-4">
+                                Regresa al dashboard para ver más detalles
+                            </p>
                         </div>
                     </section>
 
