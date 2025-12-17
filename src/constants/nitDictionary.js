@@ -31,8 +31,22 @@ export const CLIENT_NIT_MAP = {
     '1122515514': 'sunroof-coffee',
     '901969718': 'homero-mexican-food',
     '1059707869': 'ruta-65-cafe',
-    '901848815': 'moche-restaurante'
-    // TODO: agregar los clientes restantes de afood...
+    '901848815': 'moche-restaurante',
+    '40380011': 'casa-maria-burger',
+    '1121835315': 'bufalitos',
+    '19446662': 'restaurante-gaturros',
+    '1121854712': 'originaria',
+    '1019018080': 'pescador-restaurante',
+    '1121825773': 'siena-dessert-bar',
+    '1121833553': 'destrocoffee-&-brunch',
+    '166389': 'santa-clara-restaurante',
+    '40445821': 'la-vida-es-bella',
+    '1121947789': 'hamburguesas-ryr',
+    '3158257': 'matambre',
+    '14253609': 'monchef-col',
+    '96857409': 'fruver-el-maná',
+    '53139796': 'astropollo',
+    // TODO: agregar los clientes restantes de afood... y los clientes ganados a fecha de corte 19/12/2025
 };
 
 export function validateNit(nit) {
