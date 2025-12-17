@@ -31,6 +31,7 @@ export const CLIENT_NIT_MAP = {
     '1122515514': 'sunroof-coffee',
     '901969718': 'homero-mexican-food',
     '1059707869': 'ruta-65-cafe',
+    '901848815': 'moche-restaurante'
     // TODO: agregar los clientes restantes de afood...
 };
 
