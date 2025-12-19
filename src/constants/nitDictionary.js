@@ -46,6 +46,11 @@ export const CLIENT_NIT_MAP = {
     '14253609': 'monchef-col',
     '96857409': 'fruver-el-maná',
     '53139796': 'astropollo',
+    '1031124640': 'gorila-burguer',
+    '901936288': 'divermansion-campestre',
+    '11740932': 'sanducheria-la-esperanza',
+    '98453211': 'wakanda-burger',
+    '1020776861': 'restaurante-la-topia'
     // TODO: agregar los clientes restantes de afood... y los clientes ganados a fecha de corte 19/12/2025
 };
 
