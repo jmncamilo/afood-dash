@@ -49,7 +49,7 @@ export const CLIENT_NIT_MAP = {
     '1031124640': 'gorila-burguer',
     '901936288': 'divermansion-campestre',
     '11740932': 'sanducheria-la-esperanza',
-    '98453211': 'wakanda-burger',
+    '98453211': 'wacanda-burger',
     '1020776861': 'restaurante-la-topia'
     // TODO: agregar los clientes restantes de afood... y los clientes ganados a fecha de corte 19/12/2025
 };
