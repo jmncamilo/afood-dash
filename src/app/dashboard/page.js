@@ -143,7 +143,7 @@ export default function Dashboard() {
                             <div className={styles.cardWrapperTotal}>
                                 <span className="block leading-tight text-md md:text-lg lg:text-xl font-normal text-gray-50">Total comprado</span>
                                 <span className="block leading-tight text-2xl md:text-3xl lg:text-4xl font-bold text-gray-100">
-                                    ${formatCurrency(calculateIntegerColumnTotal(ordersData?.data, 'Precio del Pedido') || 999999)},00
+                                    ${formatCurrency(calculateIntegerColumnTotal(ordersData?.data, 'Precio del Pedido') || 999999)}
                                 </span>
                             </div>
                             <span className={styles.chipCard} aria-hidden={true}></span>
