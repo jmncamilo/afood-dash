@@ -51,7 +51,6 @@ export const CLIENT_NIT_MAP = {
     '11740932': 'sanducheria-la-esperanza',
     '98453211': 'wacanda-burger',
     '1020776861': 'restaurante-la-topia'
-    // TODO: agregar los clientes restantes de afood... y los clientes ganados a fecha de corte 19/12/2025
 };
 
 export function validateNit(nit) {
