@@ -67,7 +67,6 @@ export async function GET(req) {
         );
 
     } catch (err) {
-        // console.error(err); // Testing CJ
         return NextResponse.json(
             {
                 success: false,

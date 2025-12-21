@@ -78,7 +78,6 @@ export default function Login() {
             // Si el código llega hasta acá, quiere decir que encontró al cliente
             setSession(form.customerNit, customerNameQuery);
             // Respuesta exitosa y redireccionamiento
-            // alert('¡Login exitoso!'); // TESTING CJ
             router.push('/dashboard');
         } catch (error) {
             // Manejando errores inesperados

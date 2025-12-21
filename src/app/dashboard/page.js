@@ -53,7 +53,6 @@ export default function Dashboard() {
                 }
                 // Obtiene el nombre del cliente y concatenándolo para construir la query string de la url del fetch
                 const completeQuery = `?customer=${session.clientNameQuery}`;
-                // console.log(completeQuery); // TESTING CJ
                 // Ejecuta el fetching
                 const data = await execute(`/api/airtable${completeQuery}`);
                 // Valída la respuesta del back para dar más robustez
@@ -93,9 +92,6 @@ export default function Dashboard() {
 
     // Handler para cerrar la sesión
     const handleLogout = () => {
-        alert('Imprimiendo datos en consola y cerrando sesión...'); // TESTING CJ
-        console.log('Pedidos:', ordersData); // TESTING CJ
-        console.log('Deudas:', debtOrdersData); // TESTING CJ
         clearSession();
         router.replace('/');
     }
