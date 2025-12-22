@@ -412,7 +412,6 @@
 @media (min-height: 933px) and (max-height: 1180px) {
     .dashboardWrapper::before {
         height: clamp(520px, 49vh, 56vh);
-        /*height: 49vh;*/
     }
 }
 
