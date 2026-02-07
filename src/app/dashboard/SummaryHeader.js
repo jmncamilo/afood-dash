@@ -23,7 +23,7 @@ export function SummaryHeader({ ordersData, additionalData, updateAdditionalData
         });
     };
 
-    // Efecto que maneja el renderizado dinámico actualziando el estado con la information que van en SummaryCard
+    // Efecto que maneja el renderizado dinámico actualizando el estado con la information que van en SummaryCard
     useEffect(() => {
         if(!ordersData?.data) return;
         if (dropdownState.selectedProduct === 'Productos') {

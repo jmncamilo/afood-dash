@@ -57,7 +57,7 @@ export default function Dashboard() {
                 const data = await execute(`/api/airtable${completeQuery}`);
                 // Valída la respuesta del back para dar más robustez
                 if (!data.success) {
-                    alert('Error en el servidor, vuelve a iniciar sesión...');
+                    // alert('Error en el servidor, vuelve a iniciar sesión...');
                     clearSession();
                     router.replace('/login');
                     return;

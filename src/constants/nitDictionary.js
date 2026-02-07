@@ -55,6 +55,10 @@ export const CLIENT_NIT_MAP = {
     '1032441450': 'sunrise-by-hype',
     '901858812': 'brokenfood',
     '79052728': 'hotel-rosalinda-campestre',
+    '3133326664': 'restaurante-jika',
+    '901695670': 'volterra-ristorante',
+    '3142397010': 'hamburguesas-el-patriarca',
+    '1121947610': 'llanoburger'
 };
 
 export function validateNit(nit) {
