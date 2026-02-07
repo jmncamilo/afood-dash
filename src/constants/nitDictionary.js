@@ -3,7 +3,7 @@ export const CLIENT_NIT_MAP = {
     '901431063': 'amarradero-del-mico',
     '1014180595': 'lalala-cocktails',
     '1006798649': 'la-bendita-parrilla',
-    '901028991': 'peru-sazon-gourmet',
+    '901028991': 'peru-sazon',
     '40332783': 'love-restaurante',
     '901372443': 'avemaria',
     '901369088': 'barbacoa-latina',
@@ -19,7 +19,7 @@ export const CLIENT_NIT_MAP = {
     '1121886123': 'nanchos-la-cabaña',
     '900359867': 'oliva-mediterranea',
     '1029983823': 'restaurante-panka-gourmet',
-    '700133934': 'posada-del-arriero',
+    '902005654': 'posada-del-arriero',
     '1019138168': 'saint-louis',
     '40391643': 'la-topochera',
     '901698572': 'tpk-cocina-callejera',
@@ -50,7 +50,11 @@ export const CLIENT_NIT_MAP = {
     '901936288': 'divermansion-campestre',
     '11740932': 'sanducheria-la-esperanza',
     '98453211': 'wacanda-burger',
-    '1020776861': 'restaurante-la-topia'
+    '1020776861': 'restaurante-la-topia',
+    '900009421': 'el-mitico-bar',
+    '1032441450': 'sunrise-by-hype',
+    '901858812': 'brokenfood',
+    '79052728': 'hotel-rosalinda-campestre',
 };
 
 export function validateNit(nit) {

@@ -166,6 +166,7 @@ export default function Dashboard() {
                     </button>
                 </section>
 
+                {/* Sección de resumen */}
                 <section className={styles.sectionSummaryOrders}>
                     <SummaryHeader ordersData={ordersData} additionalData={additionalData} updateAdditionalData={updateStateByKey} />
                     <div className={styles.summaryCardsScrollable}>
